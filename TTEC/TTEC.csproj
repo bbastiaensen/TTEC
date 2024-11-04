@@ -67,19 +67,91 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\bootstrap-grid.css" />
+    <Content Include="css\bootstrap-grid.min.css" />
+    <Content Include="css\bootstrap-grid.rtl.css" />
+    <Content Include="css\bootstrap-grid.rtl.min.css" />
+    <Content Include="css\bootstrap-reboot.css" />
+    <Content Include="css\bootstrap-reboot.min.css" />
+    <Content Include="css\bootstrap-reboot.rtl.css" />
+    <Content Include="css\bootstrap-reboot.rtl.min.css" />
+    <Content Include="css\bootstrap-utilities.css" />
+    <Content Include="css\bootstrap-utilities.min.css" />
+    <Content Include="css\bootstrap-utilities.rtl.css" />
+    <Content Include="css\bootstrap-utilities.rtl.min.css" />
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\bootstrap.rtl.css" />
+    <Content Include="css\bootstrap.rtl.min.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="js\bootstrap.bundle.js" />
+    <Content Include="js\bootstrap.bundle.min.js" />
+    <Content Include="js\bootstrap.esm.js" />
+    <Content Include="js\bootstrap.esm.min.js" />
+    <Content Include="js\bootstrap.js" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\jquery-3.7.1.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bezoeker.master.cs">
+      <DependentUpon>Bezoeker.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Bezoeker.master.designer.cs">
+      <DependentUpon>Bezoeker.master</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\bootstrap-grid.css.map" />
+    <Content Include="css\bootstrap-grid.min.css.map" />
+    <Content Include="css\bootstrap-grid.rtl.css.map" />
+    <Content Include="css\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="css\bootstrap-reboot.css.map" />
+    <Content Include="css\bootstrap-reboot.min.css.map" />
+    <Content Include="css\bootstrap-reboot.rtl.css.map" />
+    <Content Include="css\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="css\bootstrap-utilities.css.map" />
+    <Content Include="css\bootstrap-utilities.min.css.map" />
+    <Content Include="css\bootstrap-utilities.rtl.css.map" />
+    <Content Include="css\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="css\bootstrap.css.map" />
+    <Content Include="css\bootstrap.min.css.map" />
+    <Content Include="css\bootstrap.rtl.css.map" />
+    <Content Include="css\bootstrap.rtl.min.css.map" />
+    <Content Include="js\bootstrap.bundle.js.map" />
+    <Content Include="js\bootstrap.bundle.min.js.map" />
+    <Content Include="js\bootstrap.esm.js.map" />
+    <Content Include="js\bootstrap.esm.min.js.map" />
+    <Content Include="js\bootstrap.js.map" />
+    <Content Include="js\bootstrap.min.js.map" />
+    <Content Include="Bezoeker.master" />
     <None Include="packages.config" />
+    <Content Include="Site.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="images\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,0 +1,12 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Bezoeker.master.cs" Inherits="TTEC.Bezoeker" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <nav>
+
+    </nav>
+    <asp:ContentPlaceHolder ID="PageContent" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>

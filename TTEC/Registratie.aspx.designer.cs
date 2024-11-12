@@ -11,34 +11,34 @@ namespace TTEC
 {
 
 
-    public partial class Site
+    public partial class WebForm1
     {
 
         /// <summary>
-        /// head control.
+        /// TxtVoornaam control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+        protected global::System.Web.UI.WebControls.TextBox TxtVoornaam;
 
         /// <summary>
-        /// form1 control.
+        /// TxtAchternaam control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.TextBox TxtAchternaam;
 
         /// <summary>
-        /// Contentplaceholder1 control.
+        /// TxtEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder Contentplaceholder1;
+        protected global::System.Web.UI.WebControls.TextBox TxtEmail;
     }
 }

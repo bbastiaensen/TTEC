@@ -4,9 +4,6 @@
     </asp:ContentPlaceHolder>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <nav>
-
-    </nav>
     <asp:ContentPlaceHolder ID="PageContent" runat="server">
     </asp:ContentPlaceHolder>
 </asp:Content>

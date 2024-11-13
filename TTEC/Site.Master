@@ -7,12 +7,29 @@
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <link href="css/MyStyle.css" rel="stylesheet" />
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
+        <div class="container">
+            <div class="BlockLeft Block">
+                <div class="NavBlock">
+                    <img src="images/logo/Logo-Talentenschool-turnhout-3425386039.png" id="logonavblock" />
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+            <div class="BlockRight Block">
+                <div class="TitelBlock">
+                    Erasmus+ Contacts
+                </div>
+                <div class="UserBlock">
+                </div>
+                <div class="ContentBlock">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server"></asp:ContentPlaceHolder>
+                </div>
+            </div>
+            
         </div>
     </form>
 </body>

@@ -1,0 +1,23 @@
+﻿body {
+
+}
+
+.BlockLeft {
+    width: 30%;
+}
+
+.BlockRight{
+    max-width: 70%;
+}
+
+#logonavblock{
+    max-width: 100%;
+}
+
+.container {
+    width: 100%;
+}
+
+.Block {
+    display: inline-block
+}

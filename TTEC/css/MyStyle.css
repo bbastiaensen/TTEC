@@ -1,23 +1,83 @@
-﻿body {
-
+﻿:root {
+    /*Main colors*/
+    --MainBackground: #f3eff5;
+    --BlockBackground: #ffffff;
+    --ContainerBackground: #939598;
+    --FontColor: #000000;
+    /*Sub block colors*/
+    --Subblock1: #f4d8bA;
+    --Subblock2: #acc491;
+    --Subblock3: #eac2d4;
 }
 
-.BlockLeft {
-    width: 30%;
+body{
+    background-color: var(--MainBackground);
+    font-family: ubuntu;
+    color: var(--FontColor)
 }
 
-.BlockRight{
-    max-width: 70%;
+img{
+    width: 70%;
 }
 
-#logonavblock{
-    max-width: 100%;
+.titel{
+    font-size: 200%;
 }
 
-.container {
-    width: 100%;
+.navblock {
+    grid-area: nav;
 }
 
-.Block {
-    display: inline-block
+.contactsblock {
+    grid-area: conta;
+}
+
+.userblock {
+    grid-area: user;
+}
+
+.contentblock {
+    grid-area: conte;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 15% auto 12%;
+    grid-template-areas:
+        'nav conta user'
+        'nav conte conte';
+    background-color: var(--ContainerBackground);
+    padding: 7px;
+    border-radius: 10px;
+    gap: 7px;
+}
+
+.grid-container > div {
+    background-color: var(--BlockBackground);
+    text-align: center;
+    padding: 20px 0;
+    border-radius: 10px;
+}
+
+.container-content {
+    width: 17%;
+    margin-left: auto;
+    margin-right: 10px;
+    margin-top: 0px;
+}
+
+.container-content > div{
+    padding: 55px;
+    margin: 7px;
+    border-radius: 20px;
+}
+
+.sub-block1{
+    background-color: var(--Subblock1)
+}
+.sub-block2 {
+    background-color: var(--Subblock2)
+}
+.sub-block3 {
+    background-color: var(--Subblock3)
 }

@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="TTEC.Site" %>
+﻿﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="TTEC.Site" %>
 
 <!DOCTYPE html>
 
@@ -8,28 +8,30 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <link href="css/MyStyle.css" rel="stylesheet" />
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet'>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="container">
-            <div class="BlockLeft Block">
-                <div class="NavBlock">
-                    <img src="images/logo/Logo-Talentenschool-turnhout-3425386039.png" id="logonavblock" />
-                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                    </asp:ContentPlaceHolder>
-                </div>
+        <div class="grid-container">
+            <div class="navblock block">
+                <img src="images/logo/Logo-Talentenschool-turnhout-3425386039.png" />
+                <div>navigatie</div>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
             </div>
-            <div class="BlockRight Block">
-                <div class="TitelBlock">
-                    Erasmus+ Contacts
-                </div>
-                <div class="UserBlock">
-                </div>
-                <div class="ContentBlock">
+            <div class="contactsblock block">
+                <div class="titel">Erasmus+ Contacts</div>
+            </div>
+            <div class="userblock block">
+                USER
+            </div>
+            <div class="contentblock block">
+                <div class="container-content">
+                    <div class="sub-block1">Subblok 1</div>
+                    <div class="sub-block2">Subblok 2</div>
+                    <div class="sub-block3">Subblok 3</div>
                     <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server"></asp:ContentPlaceHolder>
                 </div>
             </div>
-            
         </div>
     </form>
 </body>

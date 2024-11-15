@@ -59,18 +59,22 @@ img{
     border-radius: 10px;
 }
 
-.container-content {
-    width: 17%;
-    margin-left: auto;
-    margin-right: 10px;
-    margin-top: 0px;
+.grid-container > .contentblock{
+    padding: 5px;
 }
 
-.container-content > div{
-    padding: 55px;
-    margin: 7px;
-    border-radius: 20px;
+.container-content > .sub {
+    width: 25%;
+    padding: 50px 0px;
+    margin: 5px 5px 5px auto;
 }
+
+.container-content > .content{
+    position: absolute
+}
+
+.container-content > div {
+    border-radius: 20px;}
 
 .sub-block1{
     background-color: var(--Subblock1)

@@ -9,6 +9,7 @@
     </asp:ContentPlaceHolder>
     <link href="css/MyStyle.css" rel="stylesheet" />
     <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet'>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
     <form id="form1" runat="server">
@@ -26,13 +27,15 @@
             </div>
             <div class="contentblock block">
                 <div class="container-content">
-                    <div class="sub-block1">Subblok 1</div>
-                    <div class="sub-block2">Subblok 2</div>
-                    <div class="sub-block3">Subblok 3</div>
+                    <div class="content">Content</div>
+                    <div class="sub-block1 sub">Subblok 1</div>
+                    <div class="sub-block2 sub">Subblok 2</div>
+                    <div class="sub-block3 sub">Subblok 3</div>
                     <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server"></asp:ContentPlaceHolder>
                 </div>
             </div>
         </div>
+
     </form>
 </body>
 </html>

@@ -33,6 +33,24 @@ namespace TTEC
         protected global::System.Web.UI.WebControls.TextBox TxtAchternaam;
 
         /// <summary>
+        /// CheckZenit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox CheckZenit;
+
+        /// <summary>
+        /// CheckBoomgaard control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox CheckBoomgaard;
+
+        /// <summary>
         /// TxtEmail control.
         /// </summary>
         /// <remarks>
@@ -42,6 +60,15 @@ namespace TTEC
         protected global::System.Web.UI.WebControls.TextBox TxtEmail;
 
         /// <summary>
+        /// hifEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hifEmail;
+
+        /// <summary>
         /// BtnRegistreer control.
         /// </summary>
         /// <remarks>
@@ -49,5 +76,14 @@ namespace TTEC
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button BtnRegistreer;
+
+        /// <summary>
+        /// hifRegistratie control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hifRegistratie;
     }
 }

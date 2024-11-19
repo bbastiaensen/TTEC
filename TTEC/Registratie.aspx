@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Registratie.aspx.cs" Inherits="TTEC.WebForm1" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Bezoeker.master" AutoEventWireup="true" CodeBehind="Registratie.aspx.cs" Inherits="TTEC.WebForm1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script src="js/BsValidation.js"></script>
@@ -16,7 +16,7 @@
         }
     </script>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="Contentplaceholder1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="PageContent" runat="server">
     <div id="mainform">
         <div id="rf-header">
             Registreren
@@ -31,16 +31,33 @@
                 <asp:TextBox ID="TxtAchternaam" runat="server" placeholder="Je Achternaam." required=""></asp:TextBox>
             </div>
             <div class="form-group">
-                <label for="ChckLeerkracht">Bent u leerkracht op.</label>
-                <asp:CheckBox Text="Campus zenit" runat="server" required="" />
-                <asp:CheckBox Text="Campus boomgaard" runat="server" required="" />
+                <label>Bent u leerkracht op:</label>
+                <div class="checkbox-container">
+                    <label>
+                        Campus Zenit
+            <asp:CheckBox runat="server" ID="CheckZenit" required="" />
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label>
+                        Campus Boomgaard
+            <asp:CheckBox runat="server" ID="CheckBoomgaard" required="" />
+                    </label>
+                </div>
             </div>
+
             <div class="form-group">
                 <label for="TxtEmail">E-mail:</label>
-                <asp:TextBox ID="TxtEmail" runat="server" placeholder="Uw E-mailadres." TextMode="Email" onkeypress="return disableSpace(event)"></asp:TextBox>
+                <asp:TextBox ID="TxtEmail" runat="server" placeholder="Uw E-mailadres." TextMode="Email" required="" pattern="^[^@\s]+@[^@\s]+\.[^@\s]+$" onkeypress="return disableSpace(event)"></asp:TextBox>
+            </div>
+            <div>
+                <asp:HiddenField ID="hifEmail" runat="server"/>
             </div>
             <div class="form-group">
-                <asp:Button ID="BtnRegistreer" runat="server" Text="Registreer" />
+                <asp:Button ID="BtnRegistreer" runat="server" Text="Registreer" OnClick="BtnRegistreer_Click" />
+            </div>
+            <div>
+                <asp:HiddenField ID="hifRegistratie" runat="server" />
             </div>
         </div>
     </div>

@@ -10,14 +10,12 @@
     --accent3: #ec008c;
     --accent4: #25aae1;
     --letterkleur: #000000;
-    --font-family: ubuntu;
+    --font-family: 'Ubuntu';
 }
 
 body {
     background-color: var(--websiteachtergrond);
     font-family: var(--font-family);
-    margin: 0;
-    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30,14 +28,14 @@ body {
     padding: 20px;
     border-radius: 10px;
     width: 100%;
-    max-width: 400px;
+    max-width: 600px;
 }
 
 #rf-header {
     text-align: center;
     font-weight: bold;
     margin-bottom: 20px;
-    color: var(--accent1);
+    color: var(--letterkleur);
     font-size: 48px;
 }
 
@@ -76,3 +74,4 @@ CheckBox {
 Btnregistreer:hover {
     background-color: var(--accent4);
 }
+

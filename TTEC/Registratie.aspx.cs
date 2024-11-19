@@ -44,11 +44,13 @@ namespace TTEC
                 {
                     connection.Open();
                     command.ExecuteNonQuery();
-                    hifRegistratie.Value = "Registratie succesvol!";
+                    lblRegistratieError.Visible = true;
+                    lblRegistratieError.InnerText = "Registratie succesvol! ";
+
                 }
                 catch (Exception ex)
                 {
-                    hifRegistratie.Value = "Er is een fout opgetreden: " + ex.Message;
+                    lblRegistratieError.InnerText = "Er is een fout opgetreden: " + ex.Message;
                 }
 
             }

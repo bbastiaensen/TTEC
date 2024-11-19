@@ -60,13 +60,13 @@ namespace TTEC
         protected global::System.Web.UI.WebControls.TextBox TxtEmail;
 
         /// <summary>
-        /// hifEmail control.
+        /// lblEmailError control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hifEmail;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblEmailError;
 
         /// <summary>
         /// BtnRegistreer control.
@@ -78,12 +78,12 @@ namespace TTEC
         protected global::System.Web.UI.WebControls.Button BtnRegistreer;
 
         /// <summary>
-        /// hifRegistratie control.
+        /// lblRegistratieError control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hifRegistratie;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblRegistratieError;
     }
 }

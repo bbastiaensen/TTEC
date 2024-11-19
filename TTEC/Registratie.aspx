@@ -21,7 +21,7 @@
         <div id="rf-header">
             Registreren
         </div>
-        <div id="form">
+        <div id="form needs-validation">
             <div class="form-group">
                 <label for="TxtVoornaam">Voornaam</label>
                 <asp:TextBox ID="TxtVoornaam" runat="server" placeholder="Je Voornaam." required=""></asp:TextBox>
@@ -45,19 +45,18 @@
                     </label>
                 </div>
             </div>
-
             <div class="form-group">
                 <label for="TxtEmail">E-mail:</label>
                 <asp:TextBox ID="TxtEmail" runat="server" placeholder="Uw E-mailadres." TextMode="Email" required="" pattern="^[^@\s]+@[^@\s]+\.[^@\s]+$" onkeypress="return disableSpace(event)"></asp:TextBox>
             </div>
             <div>
-                <asp:HiddenField ID="hifEmail" runat="server"/>
+                <label runat="server" id="lblEmailError" hidden="hidden"></label>
             </div>
             <div class="form-group">
                 <asp:Button ID="BtnRegistreer" runat="server" Text="Registreer" OnClick="BtnRegistreer_Click" />
             </div>
             <div>
-                <asp:HiddenField ID="hifRegistratie" runat="server" />
+                <label runat="server" id="lblRegistratieError" hidden="hidden"></label>
             </div>
         </div>
     </div>

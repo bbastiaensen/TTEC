@@ -1,20 +1,25 @@
 ﻿:root {
-    /*Main colors*/
-    --MainBackground: #f3eff5;
-    --BlockBackground: #ffffff;
-    --ContainerBackground: #939598;
-    --FontColor: #000000;
-    /*Sub block colors*/
-    --Subblock1: #f4d8bA;
-    --Subblock2: #acc491;
-    --Subblock3: #eac2d4;
+    --hoofdachtergrond: #939598;
+    --blokachtergrond: #ffffff;
+    --websiteachtergrond: #f3eff5;
+    --subblok1: #f4d8ba;
+    --subblok2: #acc491;
+    --subblok3: #eac2d4;
+    --accent1: #f7941e;
+    --accent2: #8cc63f;
+    --accent3: #ec008c;
+    --accent4: #25aae1;
+    --letterkleur: #000000;
+    --font-family: ubuntu;
 }
 
 body{
-    background-color: var(--MainBackground);
-    font-family: ubuntu;
-    color: var(--FontColor)
+    background-color: var(--websiteachtergrond);
+    font-family: var(--font-family);
+    color: var(--FontColor);
+    margin: 10px;
 }
+
 
 img{
     width: 70%;
@@ -46,42 +51,58 @@ img{
     grid-template-areas:
         'nav conta user'
         'nav conte conte';
-    background-color: var(--ContainerBackground);
+    background-color: var(--hoofdachtergrond);
     padding: 7px;
     border-radius: 10px;
     gap: 7px;
 }
 
-.grid-container > div {
-    background-color: var(--BlockBackground);
-    text-align: center;
-    padding: 20px 0;
-    border-radius: 10px;
+@media only screen and (max-width: 600px) {
+    .grid-container {
+        grid-template-columns: auto auto 12%;
+    }
+
+    img{
+        display: none;
+    }
 }
 
-.grid-container > .contentblock{
-    padding: 5px;
-}
 
-.container-content > .sub {
-    width: 25%;
-    padding: 50px 0px;
-    margin: 5px 5px 5px auto;
-}
+    .grid-container > div {
+        background-color: var(--blokachtergrond);
+        text-align: center;
+        padding: 20px 0;
+        border-radius: 10px;
+    }
 
-.container-content > .content{
-    position: absolute
-}
+    .grid-container > .contentblock {
+        padding: 5px;
+    }
 
-.container-content > div {
-    border-radius: 20px;}
+    .container-content > .sub {
+        width: 25%;
+        padding: 50px 0px;
+        margin: 5px 5px 5px auto;
+    }
 
-.sub-block1{
-    background-color: var(--Subblock1)
-}
-.sub-block2 {
-    background-color: var(--Subblock2)
-}
-.sub-block3 {
-    background-color: var(--Subblock3)
-}
+    .container-content > .content {
+        position: absolute
+    }
+
+    .container-content > div {
+        border-radius: 20px;
+    }
+
+    .sub-block1 {
+        background-color: var(--subblok1)
+    }
+
+    .sub-block2 {
+        background-color: var(--subblok2)
+    }
+
+    .sub-block3 {
+        background-color: var(--subblok3)
+    }
+
+

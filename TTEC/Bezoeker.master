@@ -5,9 +5,28 @@
     </asp:ContentPlaceHolder>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <nav>
-
-    </nav>
+    <p>
+        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </p>
+    <div class="collapse" id="collapseExample">
+        <nav class="navbar bg-light">
+            <div class="container-fluid">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Linkzizoffhueuf 1</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link 2</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link 3</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <asp:ContentPlaceHolder ID="PageContent" runat="server">

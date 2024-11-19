@@ -43,21 +43,17 @@
                         Campus Boomgaard
             <asp:CheckBox runat="server" ID="CheckBoomgaard" required="" />
                     </label>
+                    <asp:Label ID="LblErrorMessage" runat="server" ForeColor="Red" />
                 </div>
             </div>
             <div class="form-group">
                 <label for="TxtEmail">E-mail:</label>
                 <asp:TextBox ID="TxtEmail" runat="server" placeholder="Uw E-mailadres." TextMode="Email" required="" pattern="^[^@\s]+@[^@\s]+\.[^@\s]+$" onkeypress="return disableSpace(event)"></asp:TextBox>
             </div>
-            <div>
-                <label runat="server" id="lblEmailError" hidden="hidden"></label>
-            </div>
             <div class="form-group">
-                <asp:Button ID="BtnRegistreer" runat="server" Text="Registreer" OnClick="BtnRegistreer_Click" />
+                <asp:Button ID="BtnRegistreer" runat="server" Text="Registreer" OnClick="BtnRegistreer_Click"  />
             </div>
-            <div>
-                <label runat="server" id="lblRegistratieError" hidden="hidden"></label>
-            </div>
+            <asp:Label ID="LblRegistratieMessage" runat="server" />
         </div>
     </div>
 </asp:Content>

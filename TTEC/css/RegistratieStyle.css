@@ -75,3 +75,14 @@ Btnregistreer:hover {
     background-color: var(--accent4);
 }
 
+.text-success {
+    color: green;
+    font-weight: bold;
+}
+
+.text-danger {
+    color: red;
+    font-weight: bold;
+}
+
+

@@ -4,36 +4,26 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="nav" runat="server">
     <div class="navbar-desktop">
-        <a href="#">About</a>
+        <a class="top-navbar" href="#"><img src="images/icons/speedometer.svg"/>Dashboard</a>
         <a href="#">Services</a>
         <a href="#">Clients</a>
         <a href="#">Contact</a>
     </div>
-    <div id="mySidenav" class="sidenav">
-        <a id="test" href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <img src="images/logo/Logo-Talentenschool-turnhout-3425386039.png" />
-        <a href="#">About</a>
-        <a href="#">Services</a>
-        <a href="#">Clients</a>
-        <a href="#">Contact</a>
+    <div class="nav-mobile">
+        <div id="mySidenav" class="sidenav">
+            <a id="test" class="closebtn" style="cursor:pointer">&times;</a>
+            <img src="images/logo/Logo-Talentenschool-turnhout-3425386039.png" />
+            <a href="#"><img src="images/icons/speedometer.svg"/>Dashboards</a>
+            <a href="#">Services</a>
+            <a href="#">Clients</a>
+            <a href="#">Contact</a>
+        </div>
+        <button id="test2" class="mobile-nav-button" type="button">&#9776;</button>
     </div>
-    <script>
-        function openNav() {
-            document.getElementById("mySidenav").style.width = "45%";
-        }
-
-        function closeNav() {
-            document.getElementById("mySidenav").style.width = "0";
-        }
-
-
-    </script>
-    <span id="test2" class="mobile-nav-button" style="font-size: 30px; cursor: pointer" onclick="openNav()">&#9776;</span>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <asp:ContentPlaceHolder ID="PageContent" runat="server">
     </asp:ContentPlaceHolder>
 </asp:Content>
-

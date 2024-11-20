@@ -50,7 +50,7 @@ grid-area: conte;
 
 .grid-container {
 display: grid;
-grid-template-columns: 15% auto 12%;
+grid-template-columns: 15% auto 15%;
 grid-template-areas:
     'nav conta user'
     'nav conte conte';
@@ -100,17 +100,30 @@ gap: 7px;
 .navbar-desktop {
     margin-left: auto;
     margin-right: auto;
-    width: 90%;
+    width: 95%;
 }
 
 .navbar-desktop > a {
     display: block;
-    border: 1px solid black;
+    border: none;
     border-radius: 50px;
-    padding: 2px;
+    padding: 7px;
     margin: 10px 0;
+    text-decoration: none;
+    font-size: 17px;
+    text-align: left;
 }
 
 .navbar-desktop > a:hover{
-    background: red;
+    background-color: #7d46bab9;
+}
+
+.top-navbar {
+    background-color: #1c1c27;
+    color: #f6f6f7;
+}
+
+.navbar-desktop > a > img {
+    width: 10%;
+    color: white;
 }

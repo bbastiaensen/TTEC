@@ -16,14 +16,15 @@
     background-color: #111;
     overflow-x: hidden;
     transition: 0.5s;
-    padding-top: 60px;
+    padding-top: 80px;
     background-color: rgba(0, 0, 0, 0.61);
     backdrop-filter: blur(5px);
     z-index: 3;
+    display:none;
 }
 
 .sidenav a {
-    padding: 8px 8px 8px 32px;
+    padding: 8px 8px 8px 8px;
     text-decoration: none;
     font-size: 25px;
     color: #818181;
@@ -31,7 +32,7 @@
     transition: 0.3s;
 }
 
-.sidenav a:hover {
+.sidenav a:hover, .sidenav > button {
     color: #f1f1f1;
 }
 
@@ -51,6 +52,7 @@
     background-color: rgba(0, 0, 0, 0.61);
     backdrop-filter: blur(5px);
     z-index: 2;
+    display: none
 }
 
 @media only screen and (max-width: 900px) {
@@ -76,4 +78,36 @@
     .navbar-desktop {
         display: none
     }
+
+    .sidenav{
+        display: block;
+    }
+
+    .blur{
+        display: block;
+    }
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+    .sidenav a {
+        font-size: 18px;
+    }
+
+    .sidenav > img{
+        width: 50%;
+    }
+}
+
+.nav-mobile > button, .sidenav > button {
+    background: none;
+    font-size: 30px;
+    border: none;
+}
+
+.sidenav > a > img{
+    width: 10%;
 }

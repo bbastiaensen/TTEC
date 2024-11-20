@@ -84,6 +84,7 @@
     <Content Include="css\mobile.css" />
     <Content Include="css\MyStyle.css" />
     <Content Include="Default.aspx" />
+    <Content Include="images\icons\speedometer.svg" />
     <Content Include="images\logo\Logo-Talentenschool-turnhout-3425386039.png" />
     <Content Include="js\bootstrap.bundle.js" />
     <Content Include="js\bootstrap.bundle.min.js" />

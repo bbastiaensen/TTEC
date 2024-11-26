@@ -2,14 +2,14 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="nl-be">
 <head runat="server">
-    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>TTEC</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-    <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet'>
-    <script src="https://kit.fontawesome.com/240ae12bc9.js" crossorigin="anonymous"></script>
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link href="css/font.css" rel="stylesheet" />
     <script src="js/bootstrap.min.js"></script>
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/MyStyle.css" rel="stylesheet" />
@@ -18,24 +18,30 @@
     <script src="js/logic/JavaScript.js"></script>
 </head>
 <body>
-    <div class="blur" id="blur" onclick="closeNav()"></div>
+    <div class="pageblur blur" id="blur"></div>
     <div class="grid-container">
         <div class="navblock block">
-            <img src="images/logo/Logo-Talentenschool-turnhout-3425386039.png" />
+            <img alt="Logo-Talentenschool-turnhout" class="navbar-logo" src="images/logo/Logo-Talentenschool-turnhout-3425386039.png" />
             <asp:ContentPlaceHolder ID="nav" runat="server"></asp:ContentPlaceHolder>
         </div>
         <div class="contactsblock block">
-            <div class="titel">Erasmus+ Contacts</div>
+            <div class="titel">
+                <div>Erasmus+ Contacts</div>
+            </div>
         </div>
         <div class="userblock block">
-            USER
+            <div class="user">
+                <span>John Dough</span>
+                <img class="user-icon" alt="speedometer" src="/images/icons/person-circle.svg" />
+            </div>
         </div>
         <div class="contentblock block">
             <div class="container-content">
                 <div class="content">Content</div>
-                <div class="sub-block1 sub">Subblok 1</div>
+                <%-- HTML subblock --%>
+                <%--            <div class="sub-block1 sub">Subblok 1</div>
                 <div class="sub-block2 sub">Subblok 2</div>
-                <div class="sub-block3 sub">Subblok 3</div>
+                <div class="sub-block3 sub">Subblok 3</div>--%>
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server"></asp:ContentPlaceHolder>
             </div>
         </div>

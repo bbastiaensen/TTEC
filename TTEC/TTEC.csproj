@@ -65,6 +65,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Bevoegd.aspx" />
     <Content Include="css\bootstrap-grid.css" />
     <Content Include="css\bootstrap-grid.min.css" />
     <Content Include="css\bootstrap-grid.rtl.css" />
@@ -81,9 +82,12 @@
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\bootstrap.rtl.css" />
     <Content Include="css\bootstrap.rtl.min.css" />
+    <Content Include="css\font.css" />
     <Content Include="css\mobile.css" />
     <Content Include="css\MyStyle.css" />
     <Content Include="Default.aspx" />
+    <Content Include="images\icons\gear.svg" />
+    <Content Include="images\icons\person-circle.svg" />
     <Content Include="images\icons\speedometer.svg" />
     <Content Include="images\logo\Logo-Talentenschool-turnhout-3425386039.png" />
     <Content Include="js\bootstrap.bundle.js" />
@@ -94,9 +98,18 @@
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\jquery-3.7.1.js" />
     <Content Include="js\logic\JavaScript.js" />
+    <Content Include="Personeel.aspx" />
     <Content Include="Web.config" />
+    <Content Include="Beheerder.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bevoegd.aspx.cs">
+      <DependentUpon>Bevoegd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Bevoegd.aspx.designer.cs">
+      <DependentUpon>Bevoegd.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Bezoeker.master.cs">
       <DependentUpon>Bezoeker.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -111,6 +124,34 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Beheerder.master.cs">
+      <DependentUpon>Beheerder.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Beheerder.master.designer.cs">
+      <DependentUpon>Beheerder.master</DependentUpon>
+    </Compile>
+    <Compile Include="Bevoegd.master.cs">
+      <DependentUpon>Bevoegd.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Bevoegd.master.designer.cs">
+      <DependentUpon>Bevoegd.master</DependentUpon>
+    </Compile>
+    <Compile Include="Personeel.aspx.cs">
+      <DependentUpon>Personeel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Personeel.aspx.designer.cs">
+      <DependentUpon>Personeel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Personeel.master.cs">
+      <DependentUpon>Personeel.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Personeel.master.designer.cs">
+      <DependentUpon>Personeel.master</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -118,6 +159,13 @@
     </Compile>
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Beheerder.aspx.cs">
+      <DependentUpon>Beheerder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Beheerder.aspx.designer.cs">
+      <DependentUpon>Beheerder.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -145,6 +193,25 @@
     <Content Include="js\bootstrap.min.js.map" />
     <Content Include="Bezoeker.master" />
     <Content Include="Site.Master" />
+    <Content Include="font\ubuntu\Ubuntu-Bold.woff" />
+    <Content Include="font\ubuntu\Ubuntu-Bold.woff2" />
+    <Content Include="font\ubuntu\Ubuntu-BoldItalic.woff" />
+    <Content Include="font\ubuntu\Ubuntu-BoldItalic.woff2" />
+    <Content Include="font\ubuntu\Ubuntu-Italic.woff" />
+    <Content Include="font\ubuntu\Ubuntu-Italic.woff2" />
+    <Content Include="font\ubuntu\Ubuntu-Light.woff" />
+    <Content Include="font\ubuntu\Ubuntu-Light.woff2" />
+    <Content Include="font\ubuntu\Ubuntu-LightItalic.woff" />
+    <Content Include="font\ubuntu\Ubuntu-LightItalic.woff2" />
+    <Content Include="font\ubuntu\Ubuntu-Medium.woff" />
+    <Content Include="font\ubuntu\Ubuntu-Medium.woff2" />
+    <Content Include="font\ubuntu\Ubuntu-MediumItalic.woff" />
+    <Content Include="font\ubuntu\Ubuntu-MediumItalic.woff2" />
+    <Content Include="font\ubuntu\Ubuntu-Regular.woff" />
+    <Content Include="font\ubuntu\Ubuntu-Regular.woff2" />
+    <Content Include="Beheerder.master" />
+    <Content Include="Bevoegd.master" />
+    <Content Include="Personeel.master" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

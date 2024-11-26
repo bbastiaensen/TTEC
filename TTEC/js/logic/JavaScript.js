@@ -1,10 +1,10 @@
 ﻿$(document).ready(function () {
     $("#blur").hide();
-    $("#test2").click(function () {
+    $("#open-nav-mobile").click(function () {
         $("#blur").fadeIn();
         $("#mySidenav").css("width", "45%");
     });
-    $("#test, #blur").click(function () {
+    $("#close-nav-mobile, #blur").click(function () {
         $("#blur").fadeOut();
         $("#mySidenav").css("width", "0");
     });

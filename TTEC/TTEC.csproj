@@ -99,6 +99,7 @@
     <Content Include="js\jquery-3.7.1.js" />
     <Content Include="js\logic\JavaScript.js" />
     <Content Include="Personeel.aspx" />
+    <Content Include="Registratie.aspx" />
     <Content Include="Web.config" />
     <Content Include="Beheerder.aspx" />
   </ItemGroup>
@@ -153,6 +154,13 @@
       <DependentUpon>Personeel.master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registratie.aspx.cs">
+      <DependentUpon>Registratie.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registratie.aspx.designer.cs">
+      <DependentUpon>Registratie.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -18,33 +18,36 @@
     <script src="js/logic/JavaScript.js"></script>
 </head>
 <body>
-    <div class="pageblur blur" id="blur"></div>
-    <div class="grid-container">
-        <div class="navblock block">
-            <img alt="Logo-Talentenschool-turnhout" class="navbar-logo" src="images/logo/Logo-Talentenschool-turnhout-3425386039.png" />
-            <asp:ContentPlaceHolder ID="nav" runat="server"></asp:ContentPlaceHolder>
-        </div>
-        <div class="contactsblock block">
-            <div class="titel">
-                <div>Erasmus+ Contacts</div>
+    <form>
+        <div class="pageblur blur" id="blur"></div>
+        <div class="grid-container">
+            <div class="navblock block">
+                <img alt="Logo-Talentenschool-turnhout" class="navbar-logo" src="images/logo/Logo-Talentenschool-turnhout-3425386039.png" />
+                <asp:ContentPlaceHolder ID="nav" runat="server"></asp:ContentPlaceHolder>
             </div>
-        </div>
-        <div class="userblock block">
-            <div class="user">
-                <span>John Dough</span>
-                <img class="user-icon" alt="speedometer" src="/images/icons/person-circle.svg" />
+            <div class="contactsblock block">
+                <div class="titel">
+                    <div>Erasmus+ Contacts</div>
+                </div>
             </div>
-        </div>
-        <div class="contentblock block">
-            <div class="container-content">
-                <div class="content">Content</div>
-                <%-- HTML subblock --%>
-                <%--            <div class="sub-block1 sub">Subblok 1</div>
+            <div class="userblock block">
+                <div class="user">
+                    <span>John Dough</span>
+                    <img class="user-icon" alt="speedometer" src="/images/icons/person-circle.svg" />
+                </div>
+            </div>
+            <div class="contentblock block">
+                <div class="container-content">
+                    <div class="content">Content</div>
+                    <%-- HTML subblock --%>
+                    <%--            <div class="sub-block1 sub">Subblok 1</div>
                 <div class="sub-block2 sub">Subblok 2</div>
                 <div class="sub-block3 sub">Subblok 3</div>--%>
-                <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server"></asp:ContentPlaceHolder>
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server"></asp:ContentPlaceHolder>
+                </div>
             </div>
         </div>
-    </div>
+    </form>
+
 </body>
 </html>

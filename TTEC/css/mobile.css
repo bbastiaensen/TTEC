@@ -1,0 +1,117 @@
+﻿.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 80px;
+    backdrop-filter: blur(5px);
+    z-index: 3;
+    display: none;
+}
+
+.sidenav a{
+    padding: 8px 8px 8px 8px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+
+.blur {
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+}
+
+.pageblur {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.61);
+    display: none
+}
+
+.sidenav > a > img {
+    width: 10%;
+}
+
+.mobile-nav-close {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+    color: #818181;
+}
+
+.mobile-nav-open {
+    text-align: left;
+    display: none;
+    font-size: 25px;
+}
+
+.navblock > .navbar-mobile {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.mobile-nav-toggle {
+    background: none;
+    border: none;
+}
+
+@media only screen and (max-width: 900px) {
+    .grid-container {
+        grid-template-columns: auto 50%;
+        grid-template-areas:
+            'nav user'
+            'conte conte';
+    }
+
+    .contactsblock {
+        display: none;
+    }
+
+    .navblock > img {
+        display: none;
+    }
+
+    .mobile-nav-open {
+        display: block;
+    }
+
+    .navbar-desktop {
+        display: none
+    }
+
+    .sidenav{
+        display: block;
+    }
+
+    .blur{
+        display: block;
+    }
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+    .sidenav a {
+        font-size: 18px;
+    }
+
+    .sidenav > img{
+        width: 50%;
+    }
+}

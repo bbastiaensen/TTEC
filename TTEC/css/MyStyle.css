@@ -1,0 +1,156 @@
+﻿:root {
+--hoofdachtergrond: #939598;
+--blokachtergrond: #ffffff;
+--websiteachtergrond: #f3eff5;
+--subblok1: #f4d8ba;
+--subblok2: #acc491;
+--subblok3: #eac2d4;
+--accent1: #f7941e;
+--accent2: #8cc63f;
+--accent3: #ec008c;
+--accent4: #25aae1;
+--letterkleur: #000000;
+--font-family: ubuntu;
+}
+
+body {
+    background-color: var(--websiteachtergrond);
+    font-family: var(--font-family);
+    color: var(--FontColor);
+    width: 100%;
+    height: 100vh;
+    margin: 0px;
+
+}
+
+
+.navbar-logo{
+    width: 70%;
+}
+
+.titel{
+    font-size: 200%;
+}
+
+.navblock {
+    grid-area: nav;
+}
+
+.contactsblock {
+    grid-area: conta;
+}
+
+.userblock {
+    grid-area: user;
+    padding: 0 10px;
+}
+
+.contentblock {
+    grid-area: conte;
+}
+
+.grid-container {
+    margin: 10px;
+    display: grid;
+    grid-template-rows: 50px auto;
+    grid-template-columns: 300px auto 20%;
+    grid-template-areas:
+        'nav conta user'
+        'nav conte conte';
+    background-color: var(--hoofdachtergrond);
+    padding: 7px;
+    border-radius: 10px;
+    gap: 7px;
+}
+
+.grid-container > div {
+    background-color: var(--blokachtergrond);
+    text-align: center;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    border-radius: 10px;
+}
+
+.grid-container > .contentblock {
+    padding: 5px;
+}
+
+.container-content > .content {
+    text-align: left;
+}
+
+/*.container-content > .sub {
+    width: 25%;
+    padding: 50px 0px;
+    margin: 5px 5px 5px auto;
+}*/
+
+/*CSS subblock*/
+/*.container-content > div {
+    border-radius: 20px;
+}
+
+.sub-block1 {
+    background-color: var(--subblok1)
+}
+
+.sub-block2 {
+    background-color: var(--subblok2)
+}
+
+.sub-block3 {
+    background-color: var(--subblok3)
+}*/
+
+.navbar-desktop {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.navbar-desktop > a {
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #1E2631;
+    display: flex;
+    gap: 10px;
+    color: white;
+    align-items: center;
+    padding: 8px 0 12px 10px;
+    text-decoration: none;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    border: solid 2px transparent;
+    transition: 0.3s;
+    width: 93%
+}
+
+.navbar-desktop a:hover {
+    background-color: #ccc;
+    background: none;
+    border: solid 2px #1E2631;
+    color: black;
+    width: 95%;
+}
+
+.user{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    justify-content: space-between;
+}
+
+.titel {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.titel > div{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.user-icon{
+    width: 45px;
+}

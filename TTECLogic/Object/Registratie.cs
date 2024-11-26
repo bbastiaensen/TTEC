@@ -14,9 +14,9 @@ namespace TTECLogic.Object
 
         public string Achternaam { get; set; }
 
-        public string CampusZenit {  get; set; }
+        public bool CampusZenit { get; set; }
 
-        public string CampusBoomgaard { get; set; }
+        public bool CampusBoomgaard { get; set; }
 
     }
 }

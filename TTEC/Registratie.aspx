@@ -48,7 +48,7 @@
             </div>
             <div class="form-group">
                 <label for="TxtEmail">E-mail:</label>
-                <asp:TextBox ID="TxtEmail" runat="server" placeholder="Uw E-mailadres." TextMode="Email" required="" pattern="^[^@\s]+@[^@\s]+\.[^@\s]+$" onkeypress="return disableSpace(event)"></asp:TextBox>
+                <asp:TextBox ID="TxtEmail" runat="server" placeholder="Uw E-mailadres." TextMode="Email" required="" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" onkeypress="return disableSpace(event)"></asp:TextBox>
             </div>
             <div class="form-group">
                 <asp:Button ID="BtnRegistreer" runat="server" Text="Registreer" OnClick="BtnRegistreer_Click"  />

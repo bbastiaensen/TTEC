@@ -43,17 +43,17 @@ namespace TTECLogic.Manager
 
 
 
-                    //    string query = @"
-                    //INSERT INTO Registraties (Voornaam, Achternaam, Gebruikersnaam, CampusZenit, CampusBoomgaard)
-                    //VALUES (@Voornaam, @Achternaam, @Gebruikersnaam, @CampusZenit, @CampusBoomgaard)";
+                    string query = @"
+                    INSERT INTO Registraties (Voornaam, Achternaam, Gebruikersnaam, CampusZenit, CampusBoomgaard)
+                    VALUES (@Voornaam, @Achternaam, @Gebruikersnaam, @CampusZenit, @CampusBoomgaard)";
 
-                    //    SqlCommand command = new SqlCommand(query, connection);
+                    SqlCommand command = new SqlCommand(query, connection);
 
-                    //    command.Parameters.AddWithValue("@Voornaam", voornaam);
-                    //    command.Parameters.AddWithValue("@Achternaam", achternaam);
-                    //    command.Parameters.AddWithValue("@Gebruikersnaam", gebruikersnaam);
-                    //    command.Parameters.AddWithValue("@CampusZenit", CampusZenit);
-                    //    command.Parameters.AddWithValue("@CampusBoomgaard", CampusBoomgaard);
+                    command.Parameters.AddWithValue("@Voornaam", voornaam);
+                    command.Parameters.AddWithValue("@Achternaam", achternaam);
+                    command.Parameters.AddWithValue("@Gebruikersnaam", gebruikersnaam);
+                    command.Parameters.AddWithValue("@CampusZenit", CampusZenit);
+                    command.Parameters.AddWithValue("@CampusBoomgaard", CampusBoomgaard);
 
                 }
 

@@ -18,7 +18,7 @@
     <script src="js/logic/JavaScript.js"></script>
 </head>
 <body>
-    <form>
+    <form id="form1" runat="server">
         <div class="pageblur blur" id="blur"></div>
         <div class="grid-container">
             <div class="navblock block">
@@ -28,6 +28,8 @@
             <div class="contactsblock block">
                 <div class="titel">
                     <div>Erasmus+ Contacts</div>
+                    <asp:Button ID="Button1" runat="server" Text="Button" />
+                    <asp:Button ID="Button2" runat="server" Text="Button" />
                 </div>
             </div>
             <div class="userblock block">

@@ -98,6 +98,7 @@
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\jquery-3.7.1.js" />
     <Content Include="js\logic\JavaScript.js" />
+    <Content Include="Login.aspx" />
     <Content Include="Personeel.aspx" />
     <Content Include="Web.config" />
     <Content Include="Beheerder.aspx" />
@@ -137,6 +138,13 @@
     </Compile>
     <Compile Include="Bevoegd.master.designer.cs">
       <DependentUpon>Bevoegd.master</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Personeel.aspx.cs">
       <DependentUpon>Personeel.aspx</DependentUpon>

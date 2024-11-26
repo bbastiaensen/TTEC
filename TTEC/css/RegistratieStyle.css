@@ -16,7 +16,6 @@
 body {
     background-color: var(--websiteachtergrond);
     font-family: var(--font-family);
-    display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;

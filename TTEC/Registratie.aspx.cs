@@ -3,6 +3,7 @@ using System.Configuration;
 using TTECLogic.Object;
 using System.Net.Mail;
 using System.Data.SqlClient;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace TTEC
 {
@@ -41,10 +42,6 @@ namespace TTEC
                 return;
             }
 
-            // Succesvolle registratie
-            LblRegistratieMessage.Text = "Registratie succesvol! Controleer uw e-mail.";
-            LblRegistratieMessage.Visible = true;
-
 
             Registratie registratie = new Registratie
             {
@@ -77,35 +74,34 @@ namespace TTEC
 
         private void SendEmails(string userEmail)
         {
-            string adminEmail = "meulenbroekjesse250@gmail.com";
             string registratieLink = "http://localhost/Registraties.aspx";
+            MailMessage beheerder = new MailMessage();
+            beheerder.From = new MailAddress(ConfigurationManager.AppSettings["fromAdress"].ToString());
+            beheerder.To.Add(TxtEmail.Text);
+            beheerder.Subject = "Nieuwe TTEC registratie.";
+            beheerder.Body = $"Er is een nieuwe registratie. Klik <a href='{registratieLink}'>hier</a> om deze te bekijken.";
 
-            // Mail naar de beheerder
-            string adminSubject = "Nieuwe registratie";
-            string adminBody = $"Er is een nieuwe registratie. Klik <a href='{registratieLink}'>hier</a> om deze te bekijken.";
-            SendEmail(adminEmail, adminSubject, adminBody);
+            MailMessage gebruiker = new MailMessage();
+            gebruiker.From = new MailAddress(ConfigurationManager.AppSettings[TxtEmail.Text].ToString());
+            gebruiker.To.Add(TxtEmail.Text);
+            gebruiker.Subject = "TTEC registratie behandeling";
+            gebruiker.Body = "Uw registratie wordt in behandeling genomen door de beheerder.";
 
-            // Mail naar de gebruiker
-            string userSubject = "Registratie ontvangen";
-            string userBody = "Uw registratie is ontvangen en wordt verwerkt.";
-            SendEmail(userEmail, userSubject, userBody);
-        }
+            SmtpClient smtp = new SmtpClient();
+            smtp.Host = ConfigurationManager.AppSettings["smptServer"].ToString();
 
-        private void SendEmail(string to, string subject, string body)
-        {
-            MailMessage mail = new MailMessage
+            try
             {
-                To = { to },
-                Subject = subject,
-                Body = body,
-                IsBodyHtml = true
-            };
-
-            using (SmtpClient smtp = new SmtpClient("uit.telenet.be"))
-            {
-                smtp.Credentials = new System.Net.NetworkCredential("Meulenbroekjesse250@gmail.com", "Wachtwoord");
-                smtp.Send(mail);
+                smtp.Send(gebruiker);
+                smtp.Send(beheerder);
             }
+            catch (Exception ex) 
+            {
+                LblRegistratieMessage.Text = "Er is iets misgelopen tijdens het versturen van de mail" + ex.Message;
+                return;
+            }
+            LblRegistratieMessage.Text = "Uw mail is succesvol doorgestuurd.";
+
         }
 
         // Methode om alle velden te resetten

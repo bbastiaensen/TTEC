@@ -7,10 +7,7 @@ public static class RegistratieManager
 
     public static bool IsEmailInUse(string email)
     {
-        string query = @"
-        SELECT 
-            (SELECT COUNT(*) FROM Registraties WHERE Gebruikersnaam = @Email) +
-            (SELECT COUNT(*) FROM Gebruikers WHERE Gebruikersnaam = @Email)";
+        string query = @" SELECT COUNT * FROM Registraties WHERE Gebruikersnaam = @Email";
 
         using (SqlConnection conn = new SqlConnection(ConnectionString))
         using (SqlCommand cmd = new SqlCommand(query, conn))

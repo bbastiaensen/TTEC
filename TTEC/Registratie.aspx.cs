@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Data.SqlClient;
-using TTECLogic.Manager;
 using System.Configuration;
 using TTECLogic.Object;
+using System.Net.Mail;
+using System.Data.SqlClient;
 
 namespace TTEC
 {
@@ -28,87 +23,90 @@ namespace TTEC
 
         protected void BtnRegistreer_Click(object sender, EventArgs e)
         {
-            // Controleer of minstens één checkbox is aangevinkt
-            bool CampusZenit = CheckZenit.Checked;
-            bool CampusBoomgaard = CheckBoomgaard.Checked;
+            bool campusZenit = CheckZenit.Checked;
+            bool campusBoomgaard = CheckBoomgaard.Checked;            
+            string gebruikersnaam = TxtEmail.Text;
 
-            if (!CampusZenit && !CampusBoomgaard)
+            if (!campusZenit && !campusBoomgaard)
             {
                 LblRegistratieMessage.Text = "Selecteer minstens een campus.";
-                LblRegistratieMessage.CssClass = "text-danger";
                 LblRegistratieMessage.Visible = true;
                 return;
             }
 
-            //Vul een registratie object met data
-            Registratie registratie = new Registratie();
-            registratie.Voornaam = TxtVoornaam.Text;
-            registratie.Achternaam = TxtAchternaam.Text;
-            registratie.Gebruikersnaam = TxtEmail.Text;
-            registratie.CampusBoomgaard = CheckBoomgaard.Checked;
-            registratie.CampusZenit = CheckZenit.Checked;
+            if (RegistratieManager.IsEmailInUse(gebruikersnaam))
+            {
+                LblRegistratieMessage.Text = "Het e-mailadres is al geregistreerd. Gebruik een ander e-mailadres.";
+                LblRegistratieMessage.Visible = true;
+                return;
+            }
 
-            //Registratie gaan bewaren.
+            // Succesvolle registratie
+            LblRegistratieMessage.Text = "Registratie succesvol! Controleer uw e-mail.";
+            LblRegistratieMessage.Visible = true;
+
+
+            Registratie registratie = new Registratie
+            {
+                Voornaam = TxtVoornaam.Text,
+                Achternaam = TxtAchternaam.Text,
+                Gebruikersnaam = gebruikersnaam,
+                CampusZenit = campusZenit,
+                CampusBoomgaard = campusBoomgaard
+            };
+
             try
             {
                 RegistratieManager.SaveRegistratie(registratie);
+                SendEmails(gebruikersnaam);
+                LblRegistratieMessage.Text = "Registratie succesvol! Controleer uw e-mail.";
+                LblRegistratieMessage.Visible = true;
             }
-            catch (Exception)
+            catch (SqlException sqlEx)
             {
-
-                
+                LblRegistratieMessage.Text = "Databasefout: " + sqlEx.Message;
+                LblRegistratieMessage.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                LblRegistratieMessage.Text = "Er is een onverwachte fout opgetreden: " + ex.Message;
+                LblRegistratieMessage.Visible = true;
             }
 
-
-
-            //using (SqlConnection connection = new SqlConnection(connectionString))
-            //{
-            //    try
-            //    {
-            //        connection.Open();
-
-            //        // Controleer of het e-mailadres al bestaat
-            //        string checkQuery = "SELECT COUNT(*) FROM Registraties WHERE Gebruikersnaam = @Gebruikersnaam";
-            //        SqlCommand checkCommand = new SqlCommand(checkQuery, connection);
-            //        checkCommand.Parameters.AddWithValue("@Gebruikersnaam", gebruikersnaam);
-
-            //        int emailExists = (int)checkCommand.ExecuteScalar();
-            //        if (emailExists > 0)
-            //        {
-            //            LblRegistratieMessage.Text = "Het e-mailadres is al geregistreerd.";
-            //            LblRegistratieMessage.CssClass = "text-danger";
-            //            LblRegistratieMessage.Visible = true;
-            //            return;
-            //        }
-
-            //        string query = @"
-            //    INSERT INTO Registraties (Voornaam, Achternaam, Gebruikersnaam, CampusZenit, CampusBoomgaard)
-            //    VALUES (@Voornaam, @Achternaam, @Gebruikersnaam, @CampusZenit, @CampusBoomgaard)";
-            //        SqlCommand command = new SqlCommand(query, connection);
-
-            //        command.Parameters.AddWithValue("@Voornaam", voornaam);
-            //        command.Parameters.AddWithValue("@Achternaam", achternaam);
-            //        command.Parameters.AddWithValue("@Gebruikersnaam", gebruikersnaam);
-            //        command.Parameters.AddWithValue("@CampusZenit", CampusZenit);
-            //        command.Parameters.AddWithValue("@CampusBoomgaard", CampusBoomgaard);
-
-            //        command.ExecuteNonQuery();
-
-            //        LblRegistratieMessage.Text = "Registratie succesvol!";
-            //        LblRegistratieMessage.CssClass = "text-success";
-            //        LblRegistratieMessage.Visible = true;
-
-            //        ResetVelden();
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        LblRegistratieMessage.Text = "Er is een fout opgetreden: " + ex.Message;
-            //        LblRegistratieMessage.CssClass = "text-danger";
-            //        LblRegistratieMessage.Visible = true;
-            //    }
-            //}
         }
 
+        private void SendEmails(string userEmail)
+        {
+            string adminEmail = "meulenbroekjesse250@gmail.com";
+            string registratieLink = "http://localhost/Registraties.aspx";
+
+            // Mail naar de beheerder
+            string adminSubject = "Nieuwe registratie";
+            string adminBody = $"Er is een nieuwe registratie. Klik <a href='{registratieLink}'>hier</a> om deze te bekijken.";
+            SendEmail(adminEmail, adminSubject, adminBody);
+
+            // Mail naar de gebruiker
+            string userSubject = "Registratie ontvangen";
+            string userBody = "Uw registratie is ontvangen en wordt verwerkt.";
+            SendEmail(userEmail, userSubject, userBody);
+        }
+
+        private void SendEmail(string to, string subject, string body)
+        {
+            MailMessage mail = new MailMessage
+            {
+                To = { to },
+                Subject = subject,
+                Body = body,
+                IsBodyHtml = true
+            };
+
+            using (SmtpClient smtp = new SmtpClient("uit.telenet.be"))
+            {
+                smtp.Credentials = new System.Net.NetworkCredential("Meulenbroekjesse250@gmail.com", "Wachtwoord");
+                smtp.Send(mail);
+            }
+        }
 
         // Methode om alle velden te resetten
         private void ResetVelden()

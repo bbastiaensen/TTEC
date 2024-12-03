@@ -1,69 +1,44 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.SqlClient;
 using TTECLogic.Object;
 
-namespace TTECLogic.Manager
+public static class RegistratieManager
 {
-    public static class RegistratieManager
+    public static string ConnectionString { get; set; }
+
+    public static bool IsEmailInUse(string email)
     {
-        public static string ConnectionString { get; set; }
+        string query = @"
+        SELECT 
+            (SELECT COUNT(*) FROM Registraties WHERE Gebruikersnaam = @Email) +
+            (SELECT COUNT(*) FROM Gebruikers WHERE Gebruikersnaam = @Email)";
 
-        public static List<Registratie> GetRegistraties()
+        using (SqlConnection conn = new SqlConnection(ConnectionString))
+        using (SqlCommand cmd = new SqlCommand(query, conn))
         {
-            List<Registratie> registraties = null;
+            cmd.Parameters.AddWithValue("@Email", email);
+            conn.Open();
 
-            using (SqlConnection objcn = new SqlConnection())
-            {
-                objcn.ConnectionString = ConnectionString;
-
-                using (SqlCommand objCmd = new SqlCommand())
-                {
-                    objCmd.Connection = objcn;
-                    objCmd.CommandText = "select * from Registraties";
-
-                    objcn.Open();
-
-                    SqlDataReader ObjRea = objCmd.ExecuteReader();
-
-                    List<Registratie> list = null;
-
-                    while (ObjRea.Read())
-                    {
-                        if (list == null)
-                        {
-                            list = new List<Registratie>();
-                        }
-                        Registratie r = new Registratie();
-
-                    }
-
-
-
-                    //    string query = @"
-                    //INSERT INTO Registraties (Voornaam, Achternaam, Gebruikersnaam, CampusZenit, CampusBoomgaard)
-                    //VALUES (@Voornaam, @Achternaam, @Gebruikersnaam, @CampusZenit, @CampusBoomgaard)";
-
-                    //    SqlCommand command = new SqlCommand(query, connection);
-
-                    //    command.Parameters.AddWithValue("@Voornaam", voornaam);
-                    //    command.Parameters.AddWithValue("@Achternaam", achternaam);
-                    //    command.Parameters.AddWithValue("@Gebruikersnaam", gebruikersnaam);
-                    //    command.Parameters.AddWithValue("@CampusZenit", CampusZenit);
-                    //    command.Parameters.AddWithValue("@CampusBoomgaard", CampusBoomgaard);
-
-                }
-
-                return registraties;
-            }
+            int count = (int)cmd.ExecuteScalar();
+            return count > 0; 
         }
+    }
 
-        public static void SaveRegistratie(Registratie registratie)
+
+    public static void SaveRegistratie(Registratie registratie)
+    {
+        string query = @"
+            INSERT INTO Registraties (Voornaam, Achternaam, Gebruikersnaam, CampusZenit, CampusBoomgaard)
+            VALUES (@Voornaam, @Achternaam, @Gebruikersnaam, @CampusZenit, @CampusBoomgaard)";
+        using (SqlConnection conn = new SqlConnection(ConnectionString))
+        using (SqlCommand cmd = new SqlCommand(query, conn))
         {
-
+            cmd.Parameters.AddWithValue("@Voornaam", registratie.Voornaam);
+            cmd.Parameters.AddWithValue("@Achternaam", registratie.Achternaam);
+            cmd.Parameters.AddWithValue("@Gebruikersnaam", registratie.Gebruikersnaam);
+            cmd.Parameters.AddWithValue("@CampusZenit", registratie.CampusZenit);
+            cmd.Parameters.AddWithValue("@CampusBoomgaard", registratie.CampusBoomgaard);
+            conn.Open();
+            cmd.ExecuteNonQuery();
         }
     }
 }

@@ -77,31 +77,45 @@ namespace TTEC
             string registratieLink = "http://localhost/Registraties.aspx";
             MailMessage beheerder = new MailMessage();
             beheerder.From = new MailAddress(ConfigurationManager.AppSettings["fromAdress"].ToString());
-            beheerder.To.Add(TxtEmail.Text);
+            beheerder.To.Add(userEmail);
             beheerder.Subject = "Nieuwe TTEC registratie.";
             beheerder.Body = $"Er is een nieuwe registratie. Klik <a href='{registratieLink}'>hier</a> om deze te bekijken.";
 
             MailMessage gebruiker = new MailMessage();
-            gebruiker.From = new MailAddress(ConfigurationManager.AppSettings[TxtEmail.Text].ToString());
-            gebruiker.To.Add(TxtEmail.Text);
+            string fromAddress = ConfigurationManager.AppSettings["fromAdress"];
+            if (fromAddress == null)
+            {
+                LblRegistratieMessage.Text = "Ongeldig e-mailadres.";
+                return;
+            }
+            gebruiker.From = new MailAddress(fromAddress);
+            gebruiker.To.Add(userEmail);
             gebruiker.Subject = "TTEC registratie behandeling";
             gebruiker.Body = "Uw registratie wordt in behandeling genomen door de beheerder.";
 
             SmtpClient smtp = new SmtpClient();
+            string smtpServer = ConfigurationManager.AppSettings["smptServer"];
+            if (string.IsNullOrEmpty(smtpServer))
+            {
+                LblRegistratieMessage.Text = "SMTP server is not configured.";
+                return;
+            }
+            smtp.Host = smtpServer;
             smtp.Host = ConfigurationManager.AppSettings["smptServer"].ToString();
+            smtp.Port = 587;
+            smtp.EnableSsl = true; 
 
             try
             {
                 smtp.Send(gebruiker);
                 smtp.Send(beheerder);
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
-                LblRegistratieMessage.Text = "Er is iets misgelopen tijdens het versturen van de mail" + ex.Message;
+                LblRegistratieMessage.Text = "Er is iets misgelopen tijdens het versturen van de mail: " + ex.Message;
                 return;
             }
             LblRegistratieMessage.Text = "Uw mail is succesvol doorgestuurd.";
-
         }
 
         // Methode om alle velden te resetten

@@ -76,34 +76,31 @@ namespace TTEC
         {
             string registratieLink = "http://localhost/Registraties.aspx";
             MailMessage beheerder = new MailMessage();
-            beheerder.From = new MailAddress(ConfigurationManager.AppSettings["fromAdress"].ToString());
-            beheerder.To.Add(userEmail);
+            beheerder.From = new MailAddress(ConfigurationManager.AppSettings["fromAddress"]);
+            beheerder.To.Add(ConfigurationManager.AppSettings["adminEmail"]);
             beheerder.Subject = "Nieuwe TTEC registratie.";
             beheerder.Body = $"Er is een nieuwe registratie. Klik <a href='{registratieLink}'>hier</a> om deze te bekijken.";
 
             MailMessage gebruiker = new MailMessage();
-            string fromAddress = ConfigurationManager.AppSettings["fromAdress"];
-            if (fromAddress == null)
-            {
-                LblRegistratieMessage.Text = "Ongeldig e-mailadres.";
-                return;
-            }
-            gebruiker.From = new MailAddress(fromAddress);
+            gebruiker.From = new MailAddress(ConfigurationManager.AppSettings["fromAddress"]);
             gebruiker.To.Add(userEmail);
             gebruiker.Subject = "TTEC registratie behandeling";
             gebruiker.Body = "Uw registratie wordt in behandeling genomen door de beheerder.";
 
             SmtpClient smtp = new SmtpClient();
-            string smtpServer = ConfigurationManager.AppSettings["smptServer"];
+            string smtpServer = ConfigurationManager.AppSettings["smtpServer"];
             if (string.IsNullOrEmpty(smtpServer))
             {
                 LblRegistratieMessage.Text = "SMTP server is not configured.";
                 return;
             }
             smtp.Host = smtpServer;
-            smtp.Host = ConfigurationManager.AppSettings["smptServer"].ToString();
             smtp.Port = 587;
-            smtp.EnableSsl = true; 
+            smtp.EnableSsl = true;
+            smtp.Credentials = new System.Net.NetworkCredential(
+                ConfigurationManager.AppSettings["smtpUsername"],
+                ConfigurationManager.AppSettings["smtpPassword"]
+            );
 
             try
             {

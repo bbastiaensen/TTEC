@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Bezoeker.master" AutoEventWireup="true" CodeBehind="Registratie.aspx.cs" Inherits="TTEC.WebForm1" %>
+﻿<%@ Page Title="Registratie" Language="C#" MasterPageFile="~/Bezoeker.master" AutoEventWireup="true" CodeBehind="Registratie.aspx.cs" Inherits="TTEC.WebForm1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script src="js/BsValidation.js"></script>
@@ -41,7 +41,7 @@
             </div>
             <div class="form-group">
                 <label for="TxtEmail">E-mail:</label>
-                <asp:TextBox ID="TxtEmail" runat="server" placeholder="Uw E-mailadres." required="true" onkeypress="return disableSpace(event)"></asp:TextBox>
+                <asp:TextBox ID="TxtEmail" runat="server" TextMode="Email" placeholder="Uw E-mailadres." required="true" onkeypress="return disableSpace(event)"></asp:TextBox>
             </div>
             <div class="form-group">
                 <asp:Button ID="BtnRegistreer" runat="server" Text="Registreer" CssClass="btn btn-primary" OnClick="BtnRegistreer_Click" />

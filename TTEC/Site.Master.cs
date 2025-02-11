@@ -13,11 +13,7 @@ namespace TTEC
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["UserID"] = "test";
-            if (!SessieManager.CanVisitPage(Session["UserID"].ToString()))
-            {
-                Response.Redirect("test.aspx");
-            }
+
         }
     }
 }

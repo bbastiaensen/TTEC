@@ -17,7 +17,7 @@
 .sidenav a{
     padding: 8px 8px 8px 8px;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 5px;
     color: #818181;
     display: block;
     transition: 0.3s;
@@ -43,7 +43,7 @@
     width: 10%;
 }
 
-.mobile-nav-close {
+#close-nav-mobile {
     position: absolute;
     top: 0;
     right: 25px;
@@ -108,8 +108,8 @@
     }
 
     .sidenav a {
-        font-size: 18px;
-    }
+/*        font-size: 18px;
+*/    }
 
     .sidenav > img{
         width: 50%;

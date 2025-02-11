@@ -16,6 +16,12 @@ namespace TTEC
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            Response.Cache.SetNoStore();
+            if (Session["rol"] != null)
+            {
+                Response.Redirect(Session["rol"].ToString() + ".aspx");
+            }
         }
 
         protected void SubmitLogin_Click(object sender, EventArgs e)
@@ -26,17 +32,33 @@ namespace TTEC
                 Wachtwoord = TxtPassword.Text,
                 Gebruikersnaam = TxtUsername.Text
             };
-            if (LoginManager.IsLoginValid(login))
+            if (LoginManager.Login(login))
             {
-                LblMessage.Text = login.FoutBoodschap;
-                //Redirect/start sessie
-            }
-            else
-            {
-                LblMessage.Text = login.FoutBoodschap;
+                int SessieId = SessieManager.GetSessionID(login);
+                switch (SessieId) {
+                    case 0:
+                        LblMessage.Text = "geen rol";
+                        break;
+                    case 1:
+                        Session["rol"] = "Personeel";
+                        break;
+                    case 2:
+                        Session["rol"] = "Bevoegd";
+                        break;
+
+                }
+                Redirect();
             }
 
+        }
 
+        private void Redirect()
+        {
+            HttpCookie loginCookie = new HttpCookie("LoginCookie");
+            loginCookie.Values["username"] = TxtUsername.Text;
+            loginCookie.Expires = DateTime.Now.AddDays(30); // Cookie vervalt na 30 dagen
+            Response.Cookies.Add(loginCookie);
+            Response.Redirect(Session["rol"] + ".aspx", true);
         }
     }
 }

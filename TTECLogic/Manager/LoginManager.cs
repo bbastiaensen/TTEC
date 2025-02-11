@@ -4,7 +4,6 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
-using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using System.Text;
 using System.Threading.Tasks;
 using TTECLogic.Object;
@@ -15,69 +14,45 @@ namespace TTECLogic.Manager
     {
 
         public static string ConnectionString { get; set; }
-        public static bool IsLoginValid(login logindata)
+        private static string connectionString = "Data Source=localhost;Initial Catalog=TTEC;Integrated Security=True";
+        public static bool Login(login login)
         {
-            using (SqlConnection objCn = new SqlConnection())
+            bool isAuthenticated = false;
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                objCn.ConnectionString = LoginManager.ConnectionString;
+                string query = "SELECT Wachtwoord FROM Gebruikers WHERE Gebruikersnaam = @Gebruikersnaam";
 
-                using (SqlCommand objCmd = new SqlCommand())
+                using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    objCmd.Connection = objCn;
-                    objCmd.CommandType = System.Data.CommandType.Text;
-                    objCmd.CommandText = "SELECT * FROM Gebruikers WHERE Gebruikersnaam = @Gebruikersnaam;";
+                    command.Parameters.AddWithValue("@Gebruikersnaam", login.Gebruikersnaam);
 
-                    objCmd.Parameters.AddWithValue("@Gebruikersnaam", logindata.Gebruikersnaam);
-
-                    objCn.Open();
-                    SqlDataReader objRea = objCmd.ExecuteReader();
-
-                    if (CheckIfUserExist(objRea))
+                    try
                     {
-                        if (CheckIfPasswordIsCorrect(objRea, logindata.Wachtwoord))
+                        connection.Open();
+                        object result = command.ExecuteScalar();
+
+                        if (result != null)
                         {
-                            SessieManager.InitializeSession(objRea["RolId"].ToString());
-                            logindata.FoutBoodschap = "suc6";
-                            return true;
-                        }
-                        else
-                        {
-                            logindata.FoutBoodschap = "Fout ww";
-                            return false;
+                            string storedPassword = result.ToString();
+
+                            if (storedPassword == HashManager.HashPassword(login.Wachtwoord))
+                            {
+                                isAuthenticated = true;
+                            }
                         }
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        logindata.FoutBoodschap = "Foute gebruiker";
-                        return false;
+                        Console.WriteLine("Fout bij inloggen: " + ex.Message);
                     }
                 }
             }
+
+            return isAuthenticated;
         }
 
-        public static bool CheckIfUserExist(SqlDataReader objRea)
-        {
-            if (objRea.Read()) {
-                return true;
-            }
-            return false;
-        }
 
-        public static bool CheckIfPasswordIsCorrect(SqlDataReader objRea, string pass)
-        {
-            
-            if (objRea["Wachtwoord"].ToString() == HashManager.HashPassword(pass))
-            {
-                return true;
-            }
-            return false;
-        }
-
-        public static Sessie StartSession()
-        {
-
-        }
-    
 
     }
 }

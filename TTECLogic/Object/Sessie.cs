@@ -10,5 +10,6 @@ namespace TTECLogic.Object
     {
         public string RolId { get; set; }
 
+        public int test { get; set; }
     }
 }

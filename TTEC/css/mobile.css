@@ -14,15 +14,14 @@
     display: none;
 }
 
-.sidenav a{
-    padding: 8px 8px 8px 8px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-    transition: 0.3s;
-}
-
+    .sidenav a {
+        padding: 8px 8px 8px 8px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+    }
 
 .blur {
     -webkit-backdrop-filter: blur(5px);
@@ -93,11 +92,11 @@
         display: none
     }
 
-    .sidenav{
+    .sidenav {
         display: block;
     }
 
-    .blur{
+    .blur {
         display: block;
     }
 }
@@ -107,11 +106,11 @@
         padding-top: 15px;
     }
 
-    .sidenav a {
-        font-size: 18px;
-    }
+        .sidenav a {
+            font-size: 18px;
+        }
 
-    .sidenav > img{
-        width: 50%;
-    }
+        .sidenav > img {
+            width: 50%;
+        }
 }

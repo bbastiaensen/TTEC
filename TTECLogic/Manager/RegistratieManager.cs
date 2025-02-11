@@ -16,10 +16,9 @@ public static class RegistratieManager
             conn.Open();
 
             int count = (int)cmd.ExecuteScalar();
-            return count > 0; 
+            return count > 0;
         }
     }
-
 
     public static void SaveRegistratie(Registratie registratie)
     {

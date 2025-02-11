@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TTECLogic.Object
+﻿namespace TTECLogic.Object
 {
     public class Registratie
     {
-        public string Gebruikersnaam {  get; set; }
+        public string Gebruikersnaam { get; set; }
 
         public string Voornaam { get; set; }
 
@@ -17,6 +11,5 @@ namespace TTECLogic.Object
         public bool CampusZenit { get; set; }
 
         public bool CampusBoomgaard { get; set; }
-
     }
 }

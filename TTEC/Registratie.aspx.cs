@@ -1,33 +1,19 @@
 ﻿using System;
 using System.Configuration;
-using TTECLogic.Object;
-using System.Net.Mail;
 using System.Data.SqlClient;
-using static System.Net.Mime.MediaTypeNames;
 using System.Drawing;
 using System.Net;
+using System.Net.Mail;
+using TTECLogic.Object;
 
 namespace TTEC
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
-        protected void Page_load(object sender, EventArgs e)
-        {
-            RegistratieManager.ConnectionString = ConfigurationManager.ConnectionStrings["TTCn"].ConnectionString;
-
-            if (!IsPostBack)
-            {
-                // Reset velden bij het laden van de pagina
-                ResetVelden();
-                LblRegistratieMessage.Visible = false;
-            }
-        }
-
-
         protected void BtnRegistreer_Click(object sender, EventArgs e)
         {
             bool campusZenit = CheckZenit.Checked;
-            bool campusBoomgaard = CheckBoomgaard.Checked;            
+            bool campusBoomgaard = CheckBoomgaard.Checked;
             string gebruikersnaam = TxtEmail.Text;
 
             if (!campusZenit && !campusBoomgaard)
@@ -43,7 +29,6 @@ namespace TTEC
                 LblRegistratieMessage.Visible = true;
                 return;
             }
-
 
             Registratie registratie = new Registratie
             {
@@ -71,7 +56,30 @@ namespace TTEC
                 LblRegistratieMessage.Text = "Er is een onverwachte fout opgetreden: " + ex.Message;
                 LblRegistratieMessage.Visible = true;
             }
+        }
 
+        protected void Page_load(object sender, EventArgs e)
+        {
+            RegistratieManager.ConnectionString = ConfigurationManager.ConnectionStrings["TTCn"].ConnectionString;
+
+            if (!IsPostBack)
+            {
+                if (IsPostBack)
+                {
+                    ResetVelden();
+                    LblRegistratieMessage.Visible = false;
+                }
+            }
+        }
+
+        // Methode om alle velden te resetten
+        private void ResetVelden()
+        {
+            TxtVoornaam.Text = string.Empty;
+            TxtAchternaam.Text = string.Empty;
+            TxtEmail.Text = string.Empty;
+            CheckZenit.Checked = false;
+            CheckBoomgaard.Checked = false;
         }
 
         private void SendEmails(string userEmail)
@@ -133,17 +141,6 @@ namespace TTEC
                 LblRegistratieMessage.ForeColor = Color.Red;
                 LblRegistratieMessage.Text = "Er is een fout opgetreden: " + ex.Message;
             }
-        }
-
-
-        // Methode om alle velden te resetten
-        private void ResetVelden()
-        {
-            TxtVoornaam.Text = string.Empty;
-            TxtAchternaam.Text = string.Empty;
-            TxtEmail.Text = string.Empty;
-            CheckZenit.Checked = false;
-            CheckBoomgaard.Checked = false;
         }
     }
 }

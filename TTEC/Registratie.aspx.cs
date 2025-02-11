@@ -4,6 +4,8 @@ using TTECLogic.Object;
 using System.Net.Mail;
 using System.Data.SqlClient;
 using static System.Net.Mime.MediaTypeNames;
+using System.Drawing;
+using System.Net;
 
 namespace TTEC
 {
@@ -74,46 +76,65 @@ namespace TTEC
 
         private void SendEmails(string userEmail)
         {
-            string registratieLink = "http://localhost/Registraties.aspx";
-            MailMessage beheerder = new MailMessage();
-            beheerder.From = new MailAddress(ConfigurationManager.AppSettings["fromAddress"]);
-            beheerder.To.Add(ConfigurationManager.AppSettings["adminEmail"]);
-            beheerder.Subject = "Nieuwe TTEC registratie.";
-            beheerder.Body = $"Er is een nieuwe registratie. Klik <a href='{registratieLink}'>hier</a> om deze te bekijken.";
-
-            MailMessage gebruiker = new MailMessage();
-            gebruiker.From = new MailAddress(ConfigurationManager.AppSettings["fromAddress"]);
-            gebruiker.To.Add(userEmail);
-            gebruiker.Subject = "TTEC registratie behandeling";
-            gebruiker.Body = "Uw registratie wordt in behandeling genomen door de beheerder.";
-
-            SmtpClient smtp = new SmtpClient();
-            string smtpServer = ConfigurationManager.AppSettings["smtpServer"];
-            if (string.IsNullOrEmpty(smtpServer))
-            {
-                LblRegistratieMessage.Text = "SMTP server is not configured.";
-                return;
-            }
-            smtp.Host = smtpServer;
-            smtp.Port = 587;
-            smtp.EnableSsl = true;
-            smtp.Credentials = new System.Net.NetworkCredential(
-                ConfigurationManager.AppSettings["smtpUsername"],
-                ConfigurationManager.AppSettings["smtpPassword"]
-            );
-
             try
             {
-                smtp.Send(gebruiker);
-                smtp.Send(beheerder);
+                string adminEmail = "meulenbroekjesse250@gmail.com"; // Vervang door het e-mailadres van de beheerder
+                string registratieUrl = "https://localhost:44365/Registraties.aspx";
+
+                // E-mail naar de geregistreerde gebruiker
+                MailMessage userMail = new MailMessage();
+                userMail.From = new MailAddress("meulenbroekjesse250@gmail.com");
+                userMail.To.Add(userEmail);
+                userMail.Subject = "Registratie ontvangen - Talentenschool Turnhout";
+                userMail.Body = $@"
+            <p>Beste {TxtVoornaam.Text} {TxtAchternaam.Text},</p>
+            <p>Bedankt voor je registratie bij Talentenschool Turnhout.</p>
+            <p>Wij hebben je gegevens ontvangen en zullen deze zo snel mogelijk verwerken.</p>
+            <p>Met vriendelijke groeten,</p>
+            <p><b>Talentenschool Turnhout</b></p>";
+                userMail.IsBodyHtml = true;
+
+                // E-mail naar de beheerder
+                MailMessage adminMail = new MailMessage();
+                adminMail.From = new MailAddress("meulenbroekjesse250@gmail.com");
+                adminMail.To.Add(adminEmail);
+                adminMail.Subject = "Nieuwe registratie ontvangen";
+                adminMail.Body = $@"
+            <p>Beste beheerder,</p>
+            <p>Er is een nieuwe registratie binnengekomen:</p>
+            <ul>
+                <li><b>Naam:</b> {TxtVoornaam.Text} {TxtAchternaam.Text}</li>
+                <li><b>Email:</b> {userEmail}</li>
+                <li><b>Campus Zenit:</b> {(CheckZenit.Checked ? "Ja" : "Nee")}</li>
+                <li><b>Campus Boomgaard:</b> {(CheckBoomgaard.Checked ? "Ja" : "Nee")}</li>
+            </ul>
+            <p>Bekijk de registratie en keur deze goed via de volgende link:</p>
+            <p><a href='{registratieUrl}'>Registraties bekijken</a></p>
+            <p>Met vriendelijke groeten,</p>
+            <p><b>Talentenschool Turnhout</b></p>";
+                adminMail.IsBodyHtml = true;
+
+                SmtpClient smtp = new SmtpClient();
+                smtp.Host = "smtp.gmail.com";
+                smtp.Port = 587;
+                smtp.EnableSsl = true;
+                smtp.UseDefaultCredentials = false;
+                smtp.Credentials = new NetworkCredential("meulenbroekjesse250@gmail.com", "xapg ghzb dvwn tvud\r\n");
+
+                // E-mails verzenden
+                smtp.Send(userMail);
+                smtp.Send(adminMail);
+
+                LblRegistratieMessage.ForeColor = Color.Green;
+                LblRegistratieMessage.Text = "Registratie succesvol! Controleer uw e-mail.";
             }
             catch (Exception ex)
             {
-                LblRegistratieMessage.Text = "Er is iets misgelopen tijdens het versturen van de mail: " + ex.Message;
-                return;
+                LblRegistratieMessage.ForeColor = Color.Red;
+                LblRegistratieMessage.Text = "Er is een fout opgetreden: " + ex.Message;
             }
-            LblRegistratieMessage.Text = "Uw mail is succesvol doorgestuurd.";
         }
+
 
         // Methode om alle velden te resetten
         private void ResetVelden()

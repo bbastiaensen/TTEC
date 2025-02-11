@@ -41,7 +41,7 @@
             </div>
             <div class="form-group">
                 <label for="TxtEmail">E-mail:</label>
-                <asp:TextBox ID="TxtEmail" runat="server" TextMode="Email" placeholder="Uw E-mailadres." required="true" onkeypress="return disableSpace(event)"></asp:TextBox>
+                <asp:TextBox ID="TxtEmail" runat="server" placeholder="Uw E-mailadres." required="true" onkeypress="return disableSpace(event)"></asp:TextBox>
             </div>
             <div class="form-group">
                 <asp:Button ID="BtnRegistreer" runat="server" Text="Registreer" CssClass="btn btn-primary" OnClick="BtnRegistreer_Click" />

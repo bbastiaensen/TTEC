@@ -26,15 +26,18 @@ namespace TTEC
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 string query = "SELECT ID, Voornaam, Achternaam, Gebruikersnaam, " +
-                               "CASE WHEN CampusZenit = 1 THEN 'Zenit' WHEN CampusBoomgaard = 1 THEN 'Boomgaard' ELSE 'Beide' END AS Campus " +
-                               "FROM Registraties WHERE Goedgekeurd = 0";
+                                       "CASE WHEN CampusZenit = 1 AND CampusBoomgaard = 1 THEN 'Beide' " +
+                                       "WHEN CampusZenit = 1 THEN 'Zenit' " +
+                                       "WHEN CampusBoomgaard = 1 THEN 'Boomgaard' " +
+                                       "ELSE 'Geen' END AS Campus " +
+                                       "FROM Registraties WHERE Goedgekeurd = 0";
                 using (SqlCommand cmd = new SqlCommand(query, con))
                 {
                     con.Open();
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
-                    gvRegistraties.DataSource = dt;
+                    SqlDataAdapter DataA = new SqlDataAdapter(cmd);
+                    DataTable DataT = new DataTable();
+                    DataA.Fill(DataT);
+                    gvRegistraties.DataSource = DataT;
                     gvRegistraties.DataBind();
                 }
             }
@@ -61,6 +64,73 @@ namespace TTEC
 
             // Pagina opnieuw laden
             LaadRegistraties();
+        }
+
+        protected void BtnAfkeuren_Click(object sender, EventArgs e)
+        {
+            string connectionString = RegistratieManager.ConnectionString;
+
+            Button btn = (Button)sender;
+            int registratieId = int.Parse(btn.CommandArgument);
+
+            // Fetch the email address of the user
+            string email = GetEmailById(registratieId);
+
+            if (!string.IsNullOrEmpty(email))
+            {
+                SendRejectionEmail(email);
+
+                DeleteRegistration(registratieId);
+
+                LblRegistratieMessage.Text = "Registratie is afgekeurd en verwijderd.";
+                LblRegistratieMessage.Visible = true;
+                gvRegistraties.DataBind();
+            }
+        }
+
+        private string GetEmailById(int id)
+        {
+            string email = string.Empty;
+            string connectionString = RegistratieManager.ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = "SELECT Gebruikersnaam FROM Registraties WHERE ID = @ID";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@ID", id);
+
+                conn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    email = reader["Gebruikersnaam"].ToString();
+                }
+            }
+
+            return email;
+        }
+
+        private void SendRejectionEmail(string email)
+        {
+            string fromAddress = "meulenbroekjesse250@gmail.com";
+            string subject = "Registratie Afgekeurd";
+            string body = "Uw registratie is afgekeurd.";
+
+            using (MailMessage mail = new MailMessage())
+            {
+                mail.From = new MailAddress(fromAddress);
+                mail.To.Add(email);
+                mail.Subject = subject;
+                mail.Body = body;
+                mail.IsBodyHtml = true;
+
+                SmtpClient smtp = new SmtpClient();
+                smtp.Host = "smtp.gmail.com";
+                smtp.Port = 587;
+                smtp.EnableSsl = true;
+                smtp.UseDefaultCredentials = false;
+                smtp.Credentials = new NetworkCredential("meulenbroekjesse250@gmail.com", "xapg ghzb dvwn tvud\r\n");
+            }
         }
 
         private void VerstuurBevestigingsEmail(int userId)
@@ -105,10 +175,26 @@ namespace TTEC
                         }
                         catch (Exception ex)
                         {
-                            // Log foutmelding indien gewenst
+                            LblRegistratieMessage.ForeColor = Color.Red;
+                            LblRegistratieMessage.Text = "Er is een fout opgetreden: " + ex.Message;
                         }
                     }
                 }
+            }
+        }
+
+        private void DeleteRegistration(int id)
+        {
+            string connectionString = "TTCn";
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = "DELETE FROM Registraties WHERE ID = @ID";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@ID", id);
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
             }
         }
     }

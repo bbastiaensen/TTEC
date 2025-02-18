@@ -95,11 +95,11 @@ namespace TTEC
                 userMail.To.Add(userEmail);
                 userMail.Subject = "Registratie ontvangen - Talentenschool Turnhout";
                 userMail.Body = $@"
-            <p>Beste {TxtVoornaam.Text} {TxtAchternaam.Text},</p>
-            <p>Bedankt voor je registratie bij Talentenschool Turnhout.</p>
-            <p>Wij hebben je gegevens ontvangen en zullen deze zo snel mogelijk verwerken.</p>
-            <p>Met vriendelijke groeten,</p>
-            <p><b>Talentenschool Turnhout</b></p>";
+                    <p>Beste {TxtVoornaam.Text} {TxtAchternaam.Text},</p>
+                    <p>Bedankt voor je registratie bij Talentenschool Turnhout.</p>
+                    <p>Wij hebben je gegevens ontvangen en zullen deze zo snel mogelijk verwerken.</p>
+                    <p>Met vriendelijke groeten,</p>
+                    <p><b>Talentenschool Turnhout</b></p>";
                 userMail.IsBodyHtml = true;
 
                 // E-mail naar de beheerder
@@ -108,18 +108,18 @@ namespace TTEC
                 adminMail.To.Add(adminEmail);
                 adminMail.Subject = "Nieuwe registratie ontvangen";
                 adminMail.Body = $@"
-            <p>Beste beheerder,</p>
-            <p>Er is een nieuwe registratie binnengekomen:</p>
-            <ul>
-                <li><b>Naam:</b> {TxtVoornaam.Text} {TxtAchternaam.Text}</li>
-                <li><b>Email:</b> {userEmail}</li>
-                <li><b>Campus Zenit:</b> {(CheckZenit.Checked ? "Ja" : "Nee")}</li>
-                <li><b>Campus Boomgaard:</b> {(CheckBoomgaard.Checked ? "Ja" : "Nee")}</li>
-            </ul>
-            <p>Bekijk de registratie en keur deze goed via de volgende link:</p>
-            <p><a href='{registratieUrl}'>Registraties bekijken</a></p>
-            <p>Met vriendelijke groeten,</p>
-            <p><b>Talentenschool Turnhout</b></p>";
+                    <p>Beste beheerder,</p>
+                    <p>Er is een nieuwe registratie binnengekomen:</p>
+                    <ul>
+                        <li><b>Naam:</b> {TxtVoornaam.Text} {TxtAchternaam.Text}</li>
+                        <li><b>Email:</b> {userEmail}</li>
+                        <li><b>Campus Zenit:</b> {(CheckZenit.Checked ? "Ja" : "Nee")}</li>
+                        <li><b>Campus Boomgaard:</b> {(CheckBoomgaard.Checked ? "Ja" : "Nee")}</li>
+                    </ul>
+                    <p>Bekijk de registratie en keur deze goed via de volgende link:</p>
+                    <p><a href='{registratieUrl}'>Registraties bekijken</a></p>
+                    <p>Met vriendelijke groeten,</p>
+                    <p><b>Talentenschool Turnhout</b></p>";
                 adminMail.IsBodyHtml = true;
 
                 SmtpClient smtp = new SmtpClient();

@@ -38,7 +38,6 @@
             </div>
             <div class="contentblock block">
                 <div class="container-content">
-                    <div class="content">Content</div>
                     <%-- HTML subblock --%>
                     <%--            <div class="sub-block1 sub">Subblok 1</div>
                 <div class="sub-block2 sub">Subblok 2</div>

@@ -7,8 +7,6 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta charset="utf-8">
     <title>TTEC</title>
-    <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>
     <link href="css/font.css" rel="stylesheet" />
     <script src="js/bootstrap.min.js"></script>
     <link href="css/bootstrap.min.css" rel="stylesheet" />
@@ -16,9 +14,11 @@
     <link href="css/mobile.css" rel="stylesheet" />
     <script src="js/jquery-3.7.1.js"></script>
     <script src="js/logic/JavaScript.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
 </head>
 <body>
-    <form runat="server">
+    <form id="form1" runat="server">
         <div class="pageblur blur" id="blur"></div>
         <div class="grid-container">
             <div class="navblock block">
@@ -47,5 +47,6 @@
             </div>
         </div>
     </form>
+
 </body>
 </html>

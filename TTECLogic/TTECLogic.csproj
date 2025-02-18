@@ -41,10 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Manager\HashManager.cs" />
+    <Compile Include="Manager\LoginManager.cs" />
+    <Compile Include="Manager\SessieManager.cs" />
+    <Compile Include="Object\Login.cs" />
+    <Compile Include="Object\Sessie.cs" />
     <Compile Include="Manager\RegistratieManager.cs" />
     <Compile Include="Object\Registratie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

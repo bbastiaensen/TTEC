@@ -18,7 +18,6 @@ body {
     font-family: var(--font-family);
     color: var(--FontColor);
     width: 100%;
-    height: 100vh;
     margin: 0px;
 }
 
@@ -45,6 +44,7 @@ body {
 
 .contentblock {
     grid-area: conte;
+    
 }
 
 .grid-container {

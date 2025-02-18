@@ -21,9 +21,13 @@
     color: #818181;
     display: block;
     transition: 0.3s;
+    border: 1px solid white;
+    font-size: 2.7vw
 }
 
-
+.sidenav a:hover {
+    background-color: white;
+}
 .blur {
     -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
@@ -106,10 +110,6 @@
     .sidenav {
         padding-top: 15px;
     }
-
-    .sidenav a {
-/*        font-size: 18px;
-*/    }
 
     .sidenav > img{
         width: 50%;

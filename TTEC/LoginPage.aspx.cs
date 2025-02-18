@@ -54,11 +54,7 @@ namespace TTEC
 
         private void Redirect()
         {
-            HttpCookie loginCookie = new HttpCookie("LoginCookie");
-            loginCookie.Values["username"] = TxtUsername.Text;
-            loginCookie.Expires = DateTime.Now.AddDays(30); // Cookie vervalt na 30 dagen
-            Response.Cookies.Add(loginCookie);
-            Response.Redirect(Session["rol"] + ".aspx", true);
+            Response.Redirect(Session["rol"] + ".aspx");
         }
     }
 }

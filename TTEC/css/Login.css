@@ -1,4 +1,23 @@
 ﻿body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.grid-container {
+    margin: 10px;
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 70% auto;
+    grid-template-areas:
+        'conta user'
+        'conte conte';
+    background-color: var(--hoofdachtergrond);
+    padding: 7px;
+    border-radius: 10px;
+    gap: 7px;
 }
 
 .LoginContainer{
@@ -6,4 +25,12 @@
     width:40%;
     margin-left:auto;
     margin-right: auto;
+}
+
+.navblock{
+    display:none;
+}
+
+.contactsblock{
+    display: block;
 }

@@ -11,25 +11,25 @@ namespace TTEC
 {
 
 
-    public partial class NestedMasterPage1
+    public partial class Registraties
     {
 
         /// <summary>
-        /// head control.
+        /// LblRegistratieMessage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+        protected global::System.Web.UI.WebControls.Label LblRegistratieMessage;
 
         /// <summary>
-        /// PageContent control.
+        /// gvRegistraties control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder PageContent;
+        protected global::System.Web.UI.WebControls.GridView gvRegistraties;
     }
 }

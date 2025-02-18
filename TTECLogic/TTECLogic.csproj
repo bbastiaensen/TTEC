@@ -46,6 +46,8 @@
     <Compile Include="Manager\SessieManager.cs" />
     <Compile Include="Object\Login.cs" />
     <Compile Include="Object\Sessie.cs" />
+    <Compile Include="Manager\RegistratieManager.cs" />
+    <Compile Include="Object\Registratie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

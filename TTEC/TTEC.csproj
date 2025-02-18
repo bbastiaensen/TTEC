@@ -82,6 +82,7 @@
     <Content Include="css\Login.css" />
     <Content Include="css\mobile.css" />
     <Content Include="css\MyStyle.css" />
+    <Content Include="css\RegistratieStyle.css" />
     <Content Include="Default.aspx" />
     <Content Include="images\icons\gear.svg" />
     <Content Include="images\icons\person-circle.svg" />
@@ -93,12 +94,15 @@
     <Content Include="js\bootstrap.esm.min.js" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\BsValidation.js" />
     <Content Include="js\jquery-3.7.1.js" />
     <Content Include="js\logic\JavaScript.js" />
     <Content Include="LoginPage.aspx" />
     <Content Include="Personeel.aspx" />
+    <Content Include="Registraties.aspx" />
     <Content Include="Web.config" />
     <Content Include="Beheerder.aspx" />
+    <Content Include="Registratie.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bevoegd.aspx.cs">
@@ -158,6 +162,13 @@
       <DependentUpon>Personeel.master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registraties.aspx.cs">
+      <DependentUpon>Registraties.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registraties.aspx.designer.cs">
+      <DependentUpon>Registraties.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -171,6 +182,13 @@
     </Compile>
     <Compile Include="Beheerder.aspx.designer.cs">
       <DependentUpon>Beheerder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registratie.aspx.cs">
+      <DependentUpon>Registratie.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registratie.aspx.designer.cs">
+      <DependentUpon>Registratie.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

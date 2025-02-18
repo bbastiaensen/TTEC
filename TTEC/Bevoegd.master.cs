@@ -11,7 +11,11 @@ namespace TTEC
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["UserID"] == "test")
+            {
+                // Gebruiker heeft geen geldige sessie, doorsturen naar loginpagina
+                Response.Redirect("LoginPage.aspx");
+            }
         }
     }
 }

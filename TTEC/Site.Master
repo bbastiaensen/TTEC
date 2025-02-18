@@ -7,8 +7,6 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta charset="utf-8">
     <title>TTEC</title>
-    <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>
     <link href="css/font.css" rel="stylesheet" />
     <script src="js/bootstrap.min.js"></script>
     <link href="css/bootstrap.min.css" rel="stylesheet" />
@@ -16,35 +14,39 @@
     <link href="css/mobile.css" rel="stylesheet" />
     <script src="js/jquery-3.7.1.js"></script>
     <script src="js/logic/JavaScript.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
 </head>
 <body>
-    <div class="pageblur blur" id="blur"></div>
-    <div class="grid-container">
-        <div class="navblock block">
-            <img alt="Logo-Talentenschool-turnhout" class="navbar-logo" src="images/logo/Logo-Talentenschool-turnhout-3425386039.png" />
-            <asp:ContentPlaceHolder ID="nav" runat="server"></asp:ContentPlaceHolder>
-        </div>
-        <div class="contactsblock block">
-            <div class="titel">
-                <div>Erasmus+ Contacts</div>
+    <form id="form1" runat="server">
+        <div class="pageblur blur" id="blur"></div>
+        <div class="grid-container">
+            <div class="navblock block">
+                <img alt="Logo-Talentenschool-turnhout" class="navbar-logo" src="images/logo/Logo-Talentenschool-turnhout-3425386039.png" />
+                <asp:ContentPlaceHolder ID="nav" runat="server"></asp:ContentPlaceHolder>
             </div>
-        </div>
-        <div class="userblock block">
-            <div class="user">
-                <span>John Dough</span>
-                <img class="user-icon" alt="speedometer" src="/images/icons/person-circle.svg" />
+            <div class="contactsblock block">
+                <div class="titel">
+                    <div>Erasmus+ Contacts</div>
+                </div>
             </div>
-        </div>
-        <div class="contentblock block">
-            <div class="container-content">
-                <div class="content">Content</div>
-                <%-- HTML subblock --%>
-                <%--            <div class="sub-block1 sub">Subblok 1</div>
+            <div class="userblock block">
+                <div class="user">
+                    <span>John Dough</span>
+                    <img class="user-icon" alt="speedometer" src="/images/icons/person-circle.svg" />
+                </div>
+            </div>
+            <div class="contentblock block">
+                <div class="container-content">
+                    <%-- HTML subblock --%>
+                    <%--            <div class="sub-block1 sub">Subblok 1</div>
                 <div class="sub-block2 sub">Subblok 2</div>
                 <div class="sub-block3 sub">Subblok 3</div>--%>
-                <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server"></asp:ContentPlaceHolder>
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server"></asp:ContentPlaceHolder>
+                </div>
             </div>
         </div>
-    </div>
+    </form>
+
 </body>
 </html>

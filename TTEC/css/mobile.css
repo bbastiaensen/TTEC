@@ -17,13 +17,17 @@
 .sidenav a{
     padding: 8px 8px 8px 8px;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 5px;
     color: #818181;
     display: block;
     transition: 0.3s;
+    border: 1px solid white;
+    font-size: 2.7vw
 }
 
-
+.sidenav a:hover {
+    background-color: white;
+}
 .blur {
     -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
@@ -43,7 +47,7 @@
     width: 10%;
 }
 
-.mobile-nav-close {
+#close-nav-mobile {
     position: absolute;
     top: 0;
     right: 25px;
@@ -105,10 +109,6 @@
 @media screen and (max-height: 450px) {
     .sidenav {
         padding-top: 15px;
-    }
-
-    .sidenav a {
-        font-size: 18px;
     }
 
     .sidenav > img{

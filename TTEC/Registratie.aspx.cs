@@ -36,7 +36,8 @@ namespace TTEC
                 Achternaam = TxtAchternaam.Text,
                 Gebruikersnaam = gebruikersnaam,
                 CampusZenit = campusZenit,
-                CampusBoomgaard = campusBoomgaard
+                CampusBoomgaard = campusBoomgaard,
+                RolId = int.Parse(HiddenRolId.Value)
             };
 
             try
@@ -60,7 +61,7 @@ namespace TTEC
 
         protected void Page_load(object sender, EventArgs e)
         {
-            RegistratieManager.ConnectionString = ConfigurationManager.ConnectionStrings["TTCn"].ConnectionString;
+            RegistratieManager.ConnectionString = ConfigurationManager.ConnectionStrings["TTEC"].ConnectionString;
 
             if (!IsPostBack)
             {

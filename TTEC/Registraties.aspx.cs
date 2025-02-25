@@ -5,16 +5,25 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Net;
 using System.Net.Mail;
+using System.Security.Cryptography;
+using System.Text;
+using System.Web;
 using System.Web.UI.WebControls;
 
 namespace TTEC
 {
     public partial class Registraties : System.Web.UI.Page
     {
-        private string connectionString = ConfigurationManager.ConnectionStrings["TTCn"].ConnectionString;
+        private readonly string connectionString = ConfigurationManager.ConnectionStrings["TTEC"].ConnectionString;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if ((string)Session["rol"] != "Bevoegd")
+            {
+                // Gebruiker heeft geen geldige sessie, doorsturen naar loginpagina
+                Response.Redirect("LoginPage.aspx");
+            }
+
             if (!IsPostBack)
             {
                 LaadRegistraties();
@@ -25,20 +34,20 @@ namespace TTEC
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                string query = "SELECT ID, Voornaam, Achternaam, Gebruikersnaam, " +
-                                       "CASE WHEN CampusZenit = 1 AND CampusBoomgaard = 1 THEN 'Beide' " +
-                                       "WHEN CampusZenit = 1 THEN 'Zenit' " +
-                                       "WHEN CampusBoomgaard = 1 THEN 'Boomgaard' " +
-                                       "ELSE 'Geen' END AS Campus " +
-                                       "FROM Registraties WHERE Goedgekeurd = 0";
+                string query = "SELECT Voornaam, Achternaam, Gebruikersnaam, " +
+                               "CASE WHEN CampusZenit = 1 AND CampusBoomgaard = 1 THEN 'Beide' " +
+                               "WHEN CampusZenit = 1 THEN 'Zenit' " +
+                               "WHEN CampusBoomgaard = 1 THEN 'Boomgaard' " +
+                               "ELSE 'Geen' END AS Campus " +
+                               "FROM Registraties ORDER BY Achternaam, Voornaam";
                 using (SqlCommand cmd = new SqlCommand(query, con))
                 {
                     con.Open();
                     SqlDataAdapter DataA = new SqlDataAdapter(cmd);
                     DataTable DataT = new DataTable();
                     DataA.Fill(DataT);
-                    gvRegistraties.DataSource = DataT;
-                    gvRegistraties.DataBind();
+                    rptRegistraties.DataSource = DataT;
+                    rptRegistraties.DataBind();
                 }
             }
         }
@@ -46,58 +55,56 @@ namespace TTEC
         protected void BtnGoedkeuren_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
-            int userId = Convert.ToInt32(btn.CommandArgument);
+            string gebruikersnaam = btn.CommandArgument;
 
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                string query = "UPDATE Registraties SET Goedgekeurd = 1 WHERE ID = @ID";
+                string query = "UPDATE Registraties SET RolId = 1 WHERE Gebruikersnaam = @Gebruikersnaam";
                 using (SqlCommand cmd = new SqlCommand(query, con))
                 {
-                    cmd.Parameters.AddWithValue("@ID", userId);
+                    cmd.Parameters.AddWithValue("@Gebruikersnaam", gebruikersnaam);
                     con.Open();
                     cmd.ExecuteNonQuery();
                 }
 
-                // E-mail sturen naar gebruiker
-                VerstuurBevestigingsEmail(userId);
+                MaakGebruikersAccount(gebruikersnaam);
+
+                VerstuurBevestigingsEmail(gebruikersnaam);
+
+                DeleteRegistration(gebruikersnaam);
             }
 
-            // Pagina opnieuw laden
             LaadRegistraties();
         }
 
         protected void BtnAfkeuren_Click(object sender, EventArgs e)
         {
-            string connectionString = RegistratieManager.ConnectionString;
-
             Button btn = (Button)sender;
-            int registratieId = int.Parse(btn.CommandArgument);
+            string gebruikersnaam = btn.CommandArgument;
 
-            // Fetch the email address of the user
-            string email = GetEmailById(registratieId);
+            string email = GetEmailByGebruikersnaam(gebruikersnaam);
 
             if (!string.IsNullOrEmpty(email))
             {
                 SendRejectionEmail(email);
 
-                DeleteRegistration(registratieId);
+                DeleteRegistration(gebruikersnaam);
 
                 LblRegistratieMessage.Text = "Registratie is afgekeurd en verwijderd.";
                 LblRegistratieMessage.Visible = true;
-                gvRegistraties.DataBind();
+                LaadRegistraties();
             }
         }
 
-        private string GetEmailById(int id)
+        private string GetEmailByGebruikersnaam(string gebruikersnaam)
         {
             string email = string.Empty;
-            string connectionString = RegistratieManager.ConnectionString;
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                string query = "SELECT Gebruikersnaam FROM Registraties WHERE ID = @ID";
+                string query = "SELECT Gebruikersnaam FROM Registraties WHERE Gebruikersnaam = @Gebruikersnaam";
                 SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@ID", id);
+                cmd.Parameters.AddWithValue("@Gebruikersnaam", gebruikersnaam);
 
                 conn.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
@@ -124,23 +131,27 @@ namespace TTEC
                 mail.Body = body;
                 mail.IsBodyHtml = true;
 
-                SmtpClient smtp = new SmtpClient();
-                smtp.Host = "smtp.gmail.com";
-                smtp.Port = 587;
-                smtp.EnableSsl = true;
-                smtp.UseDefaultCredentials = false;
-                smtp.Credentials = new NetworkCredential("meulenbroekjesse250@gmail.com", "xapg ghzb dvwn tvud\r\n");
+                SmtpClient smtp = new SmtpClient
+                {
+                    Host = "smtp.gmail.com",
+                    Port = 587,
+                    EnableSsl = true,
+                    UseDefaultCredentials = false,
+                    Credentials = new NetworkCredential("meulenbroekjesse250@gmail.com", "xapg ghzb dvwn tvud\r\n")
+                };
+
+                smtp.Send(mail);
             }
         }
 
-        private void VerstuurBevestigingsEmail(int userId)
+        private void VerstuurBevestigingsEmail(string gebruikersnaam)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                string query = "SELECT Gebruikersnaam, Voornaam, Achternaam FROM Registraties WHERE ID = @ID";
+                string query = "SELECT Gebruikersnaam, Voornaam, Achternaam FROM Registraties WHERE Gebruikersnaam = @Gebruikersnaam";
                 using (SqlCommand cmd = new SqlCommand(query, con))
                 {
-                    cmd.Parameters.AddWithValue("@ID", userId);
+                    cmd.Parameters.AddWithValue("@Gebruikersnaam", gebruikersnaam);
                     con.Open();
                     SqlDataReader reader = cmd.ExecuteReader();
 
@@ -149,6 +160,7 @@ namespace TTEC
                         string email = reader["Gebruikersnaam"].ToString();
                         string voornaam = reader["Voornaam"].ToString();
                         string achternaam = reader["Achternaam"].ToString();
+                        string wachtwoord = GenerateRandomPassword();
 
                         try
                         {
@@ -157,19 +169,23 @@ namespace TTEC
                             mm.To.Add(email);
                             mm.Subject = "Registratie goedgekeurd - Talentenschool Turnhout";
                             mm.Body = $@"
-                                <p>Beste {voornaam} {achternaam},</p>
-                                <p>Goed nieuws! Jouw registratie is goedgekeurd.</p>
-                                <p>Je kunt nu inloggen via onze website.</p>
-                                <p>Met vriendelijke groeten,</p>
-                                <p><b>Talentenschool Turnhout</b></p>";
+                            <p>Beste {voornaam} {achternaam},</p>
+                            <p>Goed nieuws! Jouw registratie is goedgekeurd.</p>
+                            <p>Je kunt nu inloggen met de volgende gegevens:</p>
+                            <p>Gebruikersnaam: {email}</p>
+                            <p>Wachtwoord: {wachtwoord}</p>
+                            <p>Met vriendelijke groeten,</p>
+                            <p><b>Talentenschool Turnhout</b></p>";
                             mm.IsBodyHtml = true;
 
-                            SmtpClient smtp = new SmtpClient();
-                            smtp.Host = "smtp.gmail.com";
-                            smtp.Port = 587;
-                            smtp.EnableSsl = true;
-                            smtp.UseDefaultCredentials = false;
-                            smtp.Credentials = new NetworkCredential("meulenbroekjesse250@gmail.com", "xapg ghzb dvwn tvud\r\n");
+                            SmtpClient smtp = new SmtpClient
+                            {
+                                Host = "smtp.gmail.com",
+                                Port = 587,
+                                EnableSsl = true,
+                                UseDefaultCredentials = false,
+                                Credentials = new NetworkCredential("meulenbroekjesse250@gmail.com", "xapg ghzb dvwn tvud\r\n")
+                            };
 
                             smtp.Send(mm);
                         }
@@ -183,18 +199,88 @@ namespace TTEC
             }
         }
 
-        private void DeleteRegistration(int id)
+        private void DeleteRegistration(string gebruikersnaam)
         {
-            string connectionString = "TTCn";
-
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                string query = "DELETE FROM Registraties WHERE ID = @ID";
+                string query = "DELETE FROM Registraties WHERE Gebruikersnaam = @Gebruikersnaam";
                 SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@ID", id);
+                cmd.Parameters.AddWithValue("@Gebruikersnaam", gebruikersnaam);
 
                 conn.Open();
                 cmd.ExecuteNonQuery();
+            }
+        }
+
+        private void MaakGebruikersAccount(string gebruikersnaam)
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                string query = "SELECT Gebruikersnaam, Voornaam, Achternaam, CampusZenit, CampusBoomgaard FROM Registraties WHERE Gebruikersnaam = @Gebruikersnaam";
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@Gebruikersnaam", gebruikersnaam);
+                    con.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        string email = reader["Gebruikersnaam"].ToString();
+                        string voornaam = reader["Voornaam"].ToString();
+                        string achternaam = reader["Achternaam"].ToString();
+                        bool campusZenit = Convert.ToBoolean(reader["CampusZenit"]);
+                        bool campusBoomgaard = Convert.ToBoolean(reader["CampusBoomgaard"]);
+                        string wachtwoord = GenerateRandomPassword();
+                        string hashedWachtwoord = HashPassword(wachtwoord);
+
+                        using (SqlConnection conn = new SqlConnection(connectionString))
+                        {
+                            string insertQuery = "INSERT INTO Gebruikers (Gebruikersnaam, Wachtwoord, Voornaam, Achternaam, CampusZenit, CampusBoomgaard, RolId) VALUES (@Gebruikersnaam, @Wachtwoord, @Voornaam, @Achternaam, @CampusZenit, @CampusBoomgaard, @RolId)";
+                            using (SqlCommand insertCmd = new SqlCommand(insertQuery, conn))
+                            {
+                                insertCmd.Parameters.AddWithValue("@Gebruikersnaam", email);
+                                insertCmd.Parameters.AddWithValue("@Wachtwoord", hashedWachtwoord);
+                                insertCmd.Parameters.AddWithValue("@Voornaam", voornaam);
+                                insertCmd.Parameters.AddWithValue("@Achternaam", achternaam);
+                                insertCmd.Parameters.AddWithValue("@CampusZenit", campusZenit);
+                                insertCmd.Parameters.AddWithValue("@CampusBoomgaard", campusBoomgaard);
+                                insertCmd.Parameters.AddWithValue("@RolId", 1);
+                                conn.Open();
+                                insertCmd.ExecuteNonQuery();
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private string GenerateRandomPassword()
+        {
+            const int length = 12;
+            const string validChars = "ABCDEFGHJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*?_-";
+            StringBuilder res = new StringBuilder();
+            using (RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider())
+            {
+                byte[] uintBuffer = new byte[sizeof(uint)];
+
+                for (int i = 0; i < length; i++)
+                {
+                    rng.GetBytes(uintBuffer);
+                    uint num = BitConverter.ToUInt32(uintBuffer, 0);
+                    res.Append(validChars[(int)(num % (uint)validChars.Length)]);
+                }
+            }
+            string password = res.ToString();
+            return HashPassword(password);
+        }
+
+        public static string HashPassword(string pass)
+        {
+            using (SHA512Managed sha512 = new SHA512Managed())
+            {
+                byte[] hashedValue = sha512.ComputeHash(Encoding.UTF8.GetBytes(pass));
+                string hashpass = BitConverter.ToString(hashedValue).Replace("-", string.Empty);
+                return hashpass;
             }
         }
     }

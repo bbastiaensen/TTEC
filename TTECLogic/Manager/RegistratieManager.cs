@@ -33,6 +33,8 @@ public static class RegistratieManager
             cmd.Parameters.AddWithValue("@Gebruikersnaam", registratie.Gebruikersnaam);
             cmd.Parameters.AddWithValue("@CampusZenit", registratie.CampusZenit);
             cmd.Parameters.AddWithValue("@CampusBoomgaard", registratie.CampusBoomgaard);
+            cmd.Parameters.AddWithValue("@RolId", registratie.RolId);
+
             conn.Open();
             cmd.ExecuteNonQuery();
         }

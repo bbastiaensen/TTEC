@@ -12,26 +12,27 @@
         <div class="form-group">
             <asp:Label ID="LblRegistratieMessage" runat="server" CssClass="text-danger" Visible="true" Style="display: block;" />
         </div>
-        <asp:GridView ID="gvRegistraties" runat="server" AutoGenerateColumns="False" CssClass="table table-bordered">
-            <Columns>
-                <asp:BoundField DataField="ID" HeaderText="ID" Visible="false" />
-                <asp:BoundField DataField="Voornaam" HeaderText="Voornaam" />
-                <asp:BoundField DataField="Achternaam" HeaderText="Achternaam" />
-                <asp:BoundField DataField="Gebruikersnaam" HeaderText="E-mail" />
-                <asp:BoundField DataField="Campus" HeaderText="Campus" />
+        <div class="row">
+            <asp:Repeater ID="rptRegistraties" runat="server">
+                <ItemTemplate>
+                    <div class="col-md-4">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <h5 class="card-title"><%# Eval("Achternaam") %> <%# Eval("Voornaam") %></h5>
+                                <p class="card-text">E-mail: <%# Eval("Gebruikersnaam") %></p>
+                                <p class="card-text">Campus: <%# Eval("Campus") %></p>
+                                <div class="btn-group" role="group">
+                                    <asp:Button ID="btnGoedkeuren" runat="server" Text="Goedkeuren" CssClass="btn btn-success"
+                                        CommandName="Goedkeuren" CommandArgument='<%# Eval("Gebruikersnaam") %>' OnClick="BtnGoedkeuren_Click" />
+                                    <asp:Button ID="btnAfkeuren" runat="server" Text="Afkeuren" CssClass="btn btn-danger"
+                                        CommandName="Afkeuren" CommandArgument='<%# Eval("Gebruikersnaam") %>' OnClick="BtnAfkeuren_Click" />
 
-                <asp:TemplateField HeaderText="Actie">
-                    <ItemTemplate>
-                        <div class="btn-group" role="group">
-                            <asp:Button ID="btnGoedkeuren" runat="server" Text="Goedkeuren" CssClass="btn btn-success"
-                                CommandName="Goedkeuren" CommandArgument='<%# Eval("ID") %>' OnClick="BtnGoedkeuren_Click" />
-                            <asp:Button ID="btnAfkeuren" runat="server" Text="Afkeuren" CssClass="btn btn-danger"
-                                CommandName="Afkeuren" CommandArgument='<%# Eval("ID") %>' OnClick="BtnAfkeuren_Click" />
+                                </div>
+                            </div>
                         </div>
-                    </ItemTemplate>
-                </asp:TemplateField>
-
-            </Columns>
-        </asp:GridView>
+                    </div>
+                </ItemTemplate>
+            </asp:Repeater>
+        </div>
     </div>
 </asp:Content>

@@ -89,7 +89,6 @@ label {
     background-color: var(--accent1);
     color: var(--blokachtergrond);
     font-weight: bold;
-    cursor: pointer;
 }
 
     .BtnRegistreer:hover {

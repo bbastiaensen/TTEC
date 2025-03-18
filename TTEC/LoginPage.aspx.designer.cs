@@ -15,13 +15,13 @@ namespace TTEC
     {
 
         /// <summary>
-        /// TxtUsername control.
+        /// TxtGebruikersnaam control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtUsername;
+        protected global::System.Web.UI.WebControls.TextBox TxtGebruikersnaam;
 
         /// <summary>
         /// TxtPassword control.
@@ -33,21 +33,21 @@ namespace TTEC
         protected global::System.Web.UI.WebControls.TextBox TxtPassword;
 
         /// <summary>
-        /// SubmitLogin control.
+        /// BtnAanmelden control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button SubmitLogin;
+        protected global::System.Web.UI.WebControls.Button BtnAanmelden;
 
         /// <summary>
-        /// LblMessage control.
+        /// LblAanmeldMessage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblMessage;
+        protected global::System.Web.UI.WebControls.Label LblAanmeldMessage;
     }
 }

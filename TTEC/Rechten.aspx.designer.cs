@@ -24,76 +24,76 @@ namespace TTEC
         protected global::System.Web.UI.WebControls.DropDownList ddlUsers;
 
         /// <summary>
-        /// lblUsername control.
+        /// lblGebruikersnaam control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUsername;
+        protected global::System.Web.UI.WebControls.Label lblGebruikersnaam;
 
         /// <summary>
-        /// lblUsernameValue control.
+        /// lblGebruikersnaamValue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUsernameValue;
+        protected global::System.Web.UI.WebControls.Label lblGebruikersnaamValue;
 
         /// <summary>
-        /// lblFirstName control.
+        /// lblVoornaam control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFirstName;
+        protected global::System.Web.UI.WebControls.Label lblVoornaam;
 
         /// <summary>
-        /// lblFirstNameValue control.
+        /// lblVoornaamValue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFirstNameValue;
+        protected global::System.Web.UI.WebControls.Label lblVoornaamValue;
 
         /// <summary>
-        /// lblLastName control.
+        /// lblAchternaam control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLastName;
+        protected global::System.Web.UI.WebControls.Label lblAchternaam;
 
         /// <summary>
-        /// lblLastNameValue control.
+        /// lblAchternaamValue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLastNameValue;
+        protected global::System.Web.UI.WebControls.Label lblAchternaamValue;
 
         /// <summary>
-        /// lblRole control.
+        /// lblRol control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRole;
+        protected global::System.Web.UI.WebControls.Label lblRol;
 
         /// <summary>
-        /// ddlRoles control.
+        /// ddlRollen control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlRoles;
+        protected global::System.Web.UI.WebControls.DropDownList ddlRollen;
 
         /// <summary>
         /// btnSave control.

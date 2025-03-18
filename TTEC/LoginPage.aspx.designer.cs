@@ -42,12 +42,12 @@ namespace TTEC
         protected global::System.Web.UI.WebControls.Button BtnAanmelden;
 
         /// <summary>
-        /// LblMessage control.
+        /// LblAanmeldMessage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblMessage;
+        protected global::System.Web.UI.WebControls.Label LblAanmeldMessage;
     }
 }

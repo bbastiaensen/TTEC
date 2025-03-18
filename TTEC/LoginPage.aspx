@@ -23,7 +23,7 @@
                         <asp:Button ID="BtnAanmelden" runat="server" Text="Aanmelden" CssClass="btn btn-primary" OnClick="SubmitLogin_Click" />
                     </div>
                     <div>
-                        <asp:Label ID="LblMessage" runat="server" Text=""></asp:Label>
+                        <asp:Label ID="LblAanmeldMessage" CssClass="text-danger" runat="server" Text=""></asp:Label>
                     </div>
                 </div>
             </div>

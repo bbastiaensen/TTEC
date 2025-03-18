@@ -83,6 +83,7 @@
     <Content Include="css\LoginePageStyle.css" />
     <Content Include="css\mobile.css" />
     <Content Include="css\MyStyle.css" />
+    <Content Include="css\RechtenStyle.css" />
     <Content Include="css\RegistratieStyle.css" />
     <Content Include="Default.aspx" />
     <Content Include="images\icons\gear.svg" />

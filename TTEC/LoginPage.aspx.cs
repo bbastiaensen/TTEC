@@ -38,7 +38,7 @@ namespace TTEC
                 switch (SessieId)
                 {
                     case 0:
-                        LblMessage.Text = "geen rol";
+                        LblAanmeldMessage.Text = "geen rol";
                         break;
 
                     case 1:
@@ -58,6 +58,10 @@ namespace TTEC
                         break;
                 }
                 Redirect();
+            }
+            else
+            {
+                LblAanmeldMessage.Text = "Aanmelden mislukt. Controleer uw gebruikersnaam en wachtwoord.";
             }
         }
 

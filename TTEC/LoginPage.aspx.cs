@@ -30,26 +30,35 @@ namespace TTEC
             login login = new login
             {
                 Wachtwoord = TxtPassword.Text,
-                Gebruikersnaam = TxtUsername.Text
+                Gebruikersnaam = TxtGebruikersnaam.Text
             };
             if (LoginManager.Login(login))
             {
                 int SessieId = SessieManager.GetSessionID(login);
-                switch (SessieId) {
+                switch (SessieId)
+                {
                     case 0:
                         LblMessage.Text = "geen rol";
                         break;
+
                     case 1:
+                        Session["rol"] = "Bezoeker";
+                        break;
+
+                    case 2:
                         Session["rol"] = "Personeel";
                         break;
-                    case 2:
+
+                    case 3:
                         Session["rol"] = "Bevoegd";
                         break;
 
+                    case 4:
+                        Session["rol"] = "Beheerder";
+                        break;
                 }
                 Redirect();
             }
-
         }
 
         private void Redirect()

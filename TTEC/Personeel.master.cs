@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Web;
 
 namespace TTEC
 {
@@ -6,6 +7,10 @@ namespace TTEC
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["rol"] == null || Session["rol"].ToString() != "Personeel")
+            {
+                Response.Redirect("loginpage.aspx");
+            }
         }
     }
 }

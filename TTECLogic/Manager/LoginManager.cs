@@ -14,9 +14,9 @@ namespace TTECLogic.Manager
     {
 
         public static string ConnectionString { get; set; }
-        private static string connectionString = "Data Source=localhost;Initial Catalog=TTEC;Integrated Security=True";
         public static bool Login(login login)
         {
+            string connectionString = LoginManager.ConnectionString;
             bool isAuthenticated = false;
 
             using (SqlConnection connection = new SqlConnection(connectionString))

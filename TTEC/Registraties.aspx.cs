@@ -11,7 +11,7 @@ namespace TTEC
 {
     public partial class Registraties : System.Web.UI.Page
     {
-        private string connectionString = ConfigurationManager.ConnectionStrings["TTCn"].ConnectionString;
+        private string connectionString = ConfigurationManager.ConnectionStrings["TTEC"].ConnectionString;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -25,7 +25,7 @@ namespace TTEC
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                string query = "SELECT ID, Voornaam, Achternaam, Gebruikersnaam, " +
+                string query = "SELECT Voornaam, Achternaam, Gebruikersnaam, " +
                                        "CASE WHEN CampusZenit = 1 AND CampusBoomgaard = 1 THEN 'Beide' " +
                                        "WHEN CampusZenit = 1 THEN 'Zenit' " +
                                        "WHEN CampusBoomgaard = 1 THEN 'Boomgaard' " +
@@ -50,7 +50,7 @@ namespace TTEC
 
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                string query = "UPDATE Registraties SET Goedgekeurd = 1 WHERE ID = @ID";
+                string query = "UPDATE Registraties SET Goedgekeurd = 1 WHERE Gebruikersnaam = @ID";
                 using (SqlCommand cmd = new SqlCommand(query, con))
                 {
                     cmd.Parameters.AddWithValue("@ID", userId);

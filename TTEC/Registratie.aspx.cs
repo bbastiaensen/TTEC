@@ -60,7 +60,7 @@ namespace TTEC
 
         protected void Page_load(object sender, EventArgs e)
         {
-            RegistratieManager.ConnectionString = ConfigurationManager.ConnectionStrings["TTCn"].ConnectionString;
+            RegistratieManager.ConnectionString = ConfigurationManager.ConnectionStrings["TTEC"].ConnectionString;
 
             if (!IsPostBack)
             {

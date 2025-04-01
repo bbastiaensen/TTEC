@@ -4,6 +4,7 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="nav_desktop" runat="server">
     <a href="Registraties.aspx" class="active">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-exclamation" viewBox="0 0 16 16">

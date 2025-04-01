@@ -1,19 +1,49 @@
-﻿body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+﻿:root {
+    --hoofdachtergrond: #939598;
+    --blokachtergrond: #ffffff;
+    --websiteachtergrond: #f3eff5;
+    --subblok1: #f4d8ba;
+    --subblok2: #acc491;
+    --subblok3: #eac2d4;
+    --accent1: #f7941e;
+    --accent2: #8cc63f;
+    --accent3: #ec008c;
+    --accent4: #25aae1;
+    --letterkleur: #000000;
+    --font-family: 'Ubuntu';
+}
+
+body {
+    background-color: var(--websiteachtergrond);
+    font-family: var(--font-family);
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: var(--letterkleur);
 }
 
 
-.LoginContainer{
+.form-control {
+    width: 100%;
     display: block;
-    width:40%;
-    margin-left:auto;
-    margin-right: auto;
+    padding: 10px;
+    border: 1px solid var(--subblok2);
+    border-radius: 5px;
+    color: var(--letterkleur);
+}
+
+.BtnAanmelden {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: var(--accent1);
+    color: var(--blokachtergrond);
+    font-weight: bold;
 }
 
 
-.contactsblock{
-    display: block;
+.text-danger {
+    color: red;
+    font-weight: bold;
+    margin-top: 10px;
 }

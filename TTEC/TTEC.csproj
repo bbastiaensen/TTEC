@@ -62,22 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Bevoegd.aspx" />
-    <Content Include="css\bootstrap-grid.css" />
-    <Content Include="css\bootstrap-grid.min.css" />
-    <Content Include="css\bootstrap-grid.rtl.css" />
-    <Content Include="css\bootstrap-grid.rtl.min.css" />
-    <Content Include="css\bootstrap-reboot.css" />
-    <Content Include="css\bootstrap-reboot.min.css" />
-    <Content Include="css\bootstrap-reboot.rtl.css" />
-    <Content Include="css\bootstrap-reboot.rtl.min.css" />
-    <Content Include="css\bootstrap-utilities.css" />
-    <Content Include="css\bootstrap-utilities.min.css" />
-    <Content Include="css\bootstrap-utilities.rtl.css" />
-    <Content Include="css\bootstrap-utilities.rtl.min.css" />
-    <Content Include="css\bootstrap.css" />
     <Content Include="css\bootstrap.min.css" />
-    <Content Include="css\bootstrap.rtl.css" />
-    <Content Include="css\bootstrap.rtl.min.css" />
     <Content Include="css\font.css" />
     <Content Include="css\Login.css" />
     <Content Include="css\LoginePageStyle.css" />
@@ -90,12 +75,7 @@
     <Content Include="images\icons\person-circle.svg" />
     <Content Include="images\icons\speedometer.svg" />
     <Content Include="images\logo\Logo-Talentenschool-turnhout-3425386039.png" />
-    <Content Include="js\bootstrap.bundle.js" />
     <Content Include="js\bootstrap.bundle.min.js" />
-    <Content Include="js\bootstrap.esm.js" />
-    <Content Include="js\bootstrap.esm.min.js" />
-    <Content Include="js\bootstrap.js" />
-    <Content Include="js\bootstrap.min.js" />
     <Content Include="js\BsValidation.js" />
     <Content Include="js\jquery-3.7.1.js" />
     <Content Include="js\logic\JavaScript.js" />
@@ -202,28 +182,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="css\bootstrap-grid.css.map" />
-    <Content Include="css\bootstrap-grid.min.css.map" />
-    <Content Include="css\bootstrap-grid.rtl.css.map" />
-    <Content Include="css\bootstrap-grid.rtl.min.css.map" />
-    <Content Include="css\bootstrap-reboot.css.map" />
-    <Content Include="css\bootstrap-reboot.min.css.map" />
-    <Content Include="css\bootstrap-reboot.rtl.css.map" />
-    <Content Include="css\bootstrap-reboot.rtl.min.css.map" />
-    <Content Include="css\bootstrap-utilities.css.map" />
-    <Content Include="css\bootstrap-utilities.min.css.map" />
-    <Content Include="css\bootstrap-utilities.rtl.css.map" />
-    <Content Include="css\bootstrap-utilities.rtl.min.css.map" />
-    <Content Include="css\bootstrap.css.map" />
-    <Content Include="css\bootstrap.min.css.map" />
-    <Content Include="css\bootstrap.rtl.css.map" />
-    <Content Include="css\bootstrap.rtl.min.css.map" />
-    <Content Include="js\bootstrap.bundle.js.map" />
-    <Content Include="js\bootstrap.bundle.min.js.map" />
-    <Content Include="js\bootstrap.esm.js.map" />
-    <Content Include="js\bootstrap.esm.min.js.map" />
-    <Content Include="js\bootstrap.js.map" />
-    <Content Include="js\bootstrap.min.js.map" />
     <Content Include="Bezoeker.master" />
     <Content Include="Site.Master" />
     <Content Include="font\ubuntu\Ubuntu-Bold.woff" />

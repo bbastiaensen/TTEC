@@ -15,6 +15,7 @@ namespace TTEC
 {
     public partial class Registraties : System.Web.UI.Page
     {
+
         private readonly string connectionString = ConfigurationManager.ConnectionStrings["TTEC"].ConnectionString;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -82,7 +83,9 @@ namespace TTEC
 
             using (SqlConnection con = new SqlConnection(connectionString))
             {
+
                 string query = "UPDATE Registraties SET RolId = 1 WHERE Gebruikersnaam = @Gebruikersnaam";
+
                 using (SqlCommand cmd = new SqlCommand(query, con))
                 {
                     cmd.Parameters.AddWithValue("@Gebruikersnaam", gebruikersnaam);

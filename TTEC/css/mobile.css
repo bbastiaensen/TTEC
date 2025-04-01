@@ -11,18 +11,24 @@
     padding-top: 80px;
     backdrop-filter: blur(5px);
     z-index: 3;
-    display: none;
 }
+
 
 .sidenav a{
     padding: 8px 8px 8px 8px;
+    margin: 7px 5px;
     text-decoration: none;
     font-size: 5px;
     color: #818181;
-    display: block;
-    transition: 0.3s;
     border: 1px solid white;
-    font-size: 2.7vw
+    border-radius: 10px;
+    font-size: 2.7vw;
+    min-width: max-content;
+}
+
+.items-container {
+    display:flex;
+    flex-direction: column;
 }
 
 .sidenav a:hover {
@@ -44,8 +50,11 @@
     display: none
 }
 
-.sidenav > a > img {
-    width: 10%;
+.sidenav > .image {
+    background: url('../images/logo/Logo-Talentenschool-turnhout-3425386039.png') no-repeat center;
+    height: 80px;
+    width: 100%;
+    background-size: contain;
 }
 
 #close-nav-mobile {
@@ -59,12 +68,10 @@
 
 .mobile-nav-open {
     text-align: left;
-    display: none;
     font-size: 25px;
 }
 
 .navblock > .navbar-mobile {
-    display: flex;
     align-items: center;
     height: 100%;
 }
@@ -72,6 +79,10 @@
 .mobile-nav-toggle {
     background: none;
     border: none;
+}
+
+.mobile {
+    display: none;
 }
 
 @media only screen and (max-width: 900px) {
@@ -82,30 +93,15 @@
             'conte conte';
     }
 
-    .contactsblock {
+    .mobile {
+        display: block;
+    }
+
+    .desktop {
         display: none;
-    }
-
-    .navblock > img {
-        display: none;
-    }
-
-    .mobile-nav-open {
-        display: block;
-    }
-
-    .navbar-desktop {
-        display: none
-    }
-
-    .sidenav {
-        display: block;
-    }
-
-    .blur {
-        display: block;
     }
 }
+
 
 @media screen and (max-height: 450px) {
     .sidenav {
@@ -120,4 +116,3 @@
             width: 50%;
         }
 }
-

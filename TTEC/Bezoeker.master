@@ -4,24 +4,22 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
+<asp:Content ID="Content3" ContentPlaceHolderID="Content" runat="server">
+    <h1>Je bent niet ingelogd!</h1>
+    <a class="btn btn-primary" href="LoginPage.aspx">Login</a>
+    <span>of</span>
+    <a class="btn btn-primary" href="Registratie.aspx">Registreer</a>
     <asp:ContentPlaceHolder ID="PageContent" runat="server">
     </asp:ContentPlaceHolder>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="account" runat="server">
-<%--    <asp:Button ID="Login" runat="server" Text="Aanmelden" PostBackUrl="~/LoginPage.aspx" class="btn btn-primary" />
-    <asp:Button ID="Button1" runat="server" Text="Registreren" PostBackUrl="~/LoginPage.aspx" class="btn btn-primary" />--%>
 <div class="dropdown ">
-  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Dropdown button
-  </button>
+    <a data-bs-toggle="dropdown" aria-expand="false">Account</a>
   <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="#">Action</a></li>
-    <li><a class="dropdown-item" href="#">Another action</a></li>
-    <li><a class="dropdown-item" href="#">Something else here</a></li>
+    <li><a class="dropdown-item" href="LoginPage.aspx">Login</a></li>
+    <li><a class="dropdown-item" href="Registratie.aspx">Registreer</a></li>
   </ul>
 </div>
-
 </asp:Content>
 
 

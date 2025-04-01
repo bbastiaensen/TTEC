@@ -21,15 +21,13 @@ body {
     margin: 0px;
 }
 
-.image {
-    background: url('../images/logo/Logo-Talentenschool-turnhout-3425386039.png') no-repeat center;
-    height: 80px;
-    width: 100%;
-    background-size: contain;
+.logo{
+    width: 90%;
+    margin-bottom: 15px;
 }
 
 .titel {
-    font-size: 200%;
+    font-size: 1vw;
 }
 
 .navblock {
@@ -50,10 +48,14 @@ body {
     
 }
 
-.grid-container {
-    margin: 10px;
+.grid-container{
+    height: 100vh;
+    padding: 10px;
+}
+
+.grid {
     display: grid;
-    grid-template-rows: 50px auto;
+    grid-template-rows: 50px 1fr;
     grid-template-columns: 300px auto 20%;
     grid-template-areas:
         'nav conta user'
@@ -62,9 +64,10 @@ body {
     padding: 7px;
     border-radius: 10px;
     gap: 7px;
+    height: 100%;
 }
 
-    .grid-container > div {
+    .grid > div {
         background-color: var(--blokachtergrond);
         text-align: center;
         padding-bottom: 20px;
@@ -72,7 +75,7 @@ body {
         border-radius: 10px;
     }
 
-    .grid-container > .contentblock {
+    .grid > .contentblock {
         padding: 5px;
     }
 

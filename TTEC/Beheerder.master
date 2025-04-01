@@ -32,7 +32,6 @@
         <a href="#">Rechten beheren</a>
         <a href="#">Organistatie beheer</a>
         <a href="#">Skibidi</a>
-
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <asp:ContentPlaceHolder ID="PageContent" runat="server">

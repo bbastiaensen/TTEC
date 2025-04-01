@@ -22,63 +22,31 @@ body {
     color: var(--letterkleur);
 }
 
-#mainform {
-    background-color: var(--blokachtergrond);
-    padding: 20px;
+.grid {
+    grid-template-columns: none;
+    grid-template-areas:
+        'conta user'
+        'conte conte';
+}
+
+.navblock{
+    display:none;
+}
+
+.contentblock {
+
+}
+
+.formcontainer {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    text-align: left;
+    padding: 10px;
     border-radius: 10px;
-    width: 100%;
+
 }
 
-#rf-header {
-    text-align: center;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: var(--letterkleur);
-    font-size: 48px;
-}
-
-.form-group {
-    margin-bottom: 15px;
-}
-
-label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-.TxtEmail {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid var(--subblok2);
-    border-radius: 5px;
-    background-color: var(--subblok3);
-    color: var(--letterkleur);
-}
-
-CheckBox {
-    margin-right: 10px;
-}
-
-.Btnregistreer {
-    width: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    background-color: var(--accent1);
-    color: var(--blokachtergrond);
-    font-weight: bold;
-}
-
-Btnregistreer:hover {
-    background-color: var(--accent4);
-}
-
-.text-success {
-    color: green;
-    font-weight: bold;
-}
-
-.text-danger {
-    color: red;
-    font-weight: bold;
+.formcontainer > *{
+    margin-bottom: 10px;
 }

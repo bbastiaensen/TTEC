@@ -22,30 +22,38 @@
         <div id="form needs-validation">
             <div class="form-group">
                 <label for="TxtVoornaam">Voornaam: </label>
-                <asp:TextBox ID="TxtVoornaam" runat="server" placeholder="Je Voornaam." required="true"></asp:TextBox>
+                <asp:TextBox ID="TxtVoornaam" runat="server" CssClass="form-control" placeholder="Je Voornaam." required="true"></asp:TextBox>
             </div>
             <div class="form-group">
                 <label for="TxtAchternaam">Achternaam: </label>
-                <asp:TextBox ID="TxtAchternaam" runat="server" placeholder="Je Achternaam." required="true"></asp:TextBox>
+                <asp:TextBox ID="TxtAchternaam" runat="server" CssClass="form-control" placeholder="Je Achternaam." required="true"></asp:TextBox>
             </div>
             <div class="form-group">
-                <label>Bent u leerkracht op: </label>
+                <label class="checkbox-container">Bent u leerkracht op:</label>
                 <div class="checkbox-container">
-                    <label>Campus Zenit</label>
-                    <asp:CheckBox runat="server" ID="CheckZenit" />
+                    <label for="CheckZenit">
+                        <asp:CheckBox runat="server" ID="CheckZenit" />
+                        Campus Zenit
+                    </label>
                 </div>
                 <div class="checkbox-container">
-                    <label>Campus Boomgaard</label>
-                    <asp:CheckBox runat="server" ID="CheckBoomgaard" />
+                    <label for="CheckBoomgaard">
+                        <asp:CheckBox runat="server" ID="CheckBoomgaard" />
+                        Campus Boomgaard
+                    </label>
                 </div>
             </div>
             <div class="form-group">
                 <label for="TxtEmail">E-mail:</label>
-                <asp:TextBox ID="TxtEmail" runat="server" placeholder="Uw E-mailadres." required="true" onkeypress="return disableSpace(event)"></asp:TextBox>
+                <asp:TextBox ID="TxtEmail" runat="server" CssClass="form-control" placeholder="Uw E-mailadres." required="true" onkeypress="return disableSpace(event)"></asp:TextBox>
             </div>
             <div class="form-group">
-                <asp:Button ID="BtnRegistreer" runat="server" Text="Registreer" CssClass="btn btn-primary" OnClick="BtnRegistreer_Click" />
-                <asp:Label ID="LblRegistratieMessage" runat="server" CssClass="text-danger" Visible="true" Style="display: block;" />
+                <div class="button-container">
+                    <asp:Button ID="BtnRegistreer" runat="server" Text="Registreer" CssClass="btn btn-primary" OnClick="BtnRegistreer_Click" />
+                    <asp:Label ID="LblRegistratieMessage" runat="server" CssClass="text-danger" Visible="true" Style="display: block;" />
+                    <asp:HiddenField ID="HiddenRolId" runat="server" Value="0" />
+
+                </div>
             </div>
         </div>
     </div>

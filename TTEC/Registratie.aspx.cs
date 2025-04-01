@@ -36,7 +36,8 @@ namespace TTEC
                 Achternaam = TxtAchternaam.Text,
                 Gebruikersnaam = gebruikersnaam,
                 CampusZenit = campusZenit,
-                CampusBoomgaard = campusBoomgaard
+                CampusBoomgaard = campusBoomgaard,
+                RolId = int.Parse(HiddenRolId.Value)
             };
 
             try

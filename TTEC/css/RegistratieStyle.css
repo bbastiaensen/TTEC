@@ -27,6 +27,8 @@ body {
     padding: 20px;
     border-radius: 10px;
     width: 100%;
+    max-width: 500px;
+    margin: 20px auto;
 }
 
 #rf-header {
@@ -37,30 +39,50 @@ body {
     font-size: 48px;
 }
 
+.button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.BtnRegistreer {
+    width: auto;
+    padding: 10px 30px;
+    display: inline-block;
+}
+
+.checkbox-container {
+    text-align: center;
+    margin: 10px 0;
+}
+
+    .checkbox-container label {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+    }
+
 .form-group {
     margin-bottom: 15px;
+    text-align: left;
 }
 
 label {
     display: block;
     font-weight: bold;
+    text-align: left;
     margin-bottom: 5px;
 }
 
-.TxtEmail {
+.form-control {
     width: 100%;
+    display: block;
     padding: 10px;
     border: 1px solid var(--subblok2);
     border-radius: 5px;
-    background-color: var(--subblok3);
     color: var(--letterkleur);
 }
 
-CheckBox {
-    margin-right: 10px;
-}
-
-.Btnregistreer {
+.BtnRegistreer {
     width: 100%;
     padding: 10px;
     border-radius: 5px;
@@ -69,16 +91,12 @@ CheckBox {
     font-weight: bold;
 }
 
-Btnregistreer:hover {
-    background-color: var(--accent4);
-}
-
-.text-success {
-    color: green;
-    font-weight: bold;
-}
+    .BtnRegistreer:hover {
+        background-color: var(--accent4);
+    }
 
 .text-danger {
     color: red;
     font-weight: bold;
+    margin-top: 10px;
 }

@@ -11,5 +11,9 @@
         public bool CampusZenit { get; set; }
 
         public bool CampusBoomgaard { get; set; }
+
+        public string Campus { get; set; }
+
+        public int RolId { get; set; }
     }
 }

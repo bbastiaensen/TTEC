@@ -1,0 +1,20 @@
+﻿.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+    .form-container label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+
+    .form-container .user-details {
+        margin-top: 20px;
+    }
+
+    .form-container .detail-row {
+        margin-bottom: 15px;
+    }

@@ -11,79 +11,106 @@ namespace TTEC
 {
 
 
-    public partial class WebForm1
+    public partial class Rechten
     {
 
         /// <summary>
-        /// TxtVoornaam control.
+        /// ddlUsers control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtVoornaam;
+        protected global::System.Web.UI.WebControls.DropDownList ddlUsers;
 
         /// <summary>
-        /// TxtAchternaam control.
+        /// lblGebruikersnaam control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtAchternaam;
+        protected global::System.Web.UI.WebControls.Label lblGebruikersnaam;
 
         /// <summary>
-        /// CheckZenit control.
+        /// lblGebruikersnaamValue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckZenit;
+        protected global::System.Web.UI.WebControls.Label lblGebruikersnaamValue;
 
         /// <summary>
-        /// CheckBoomgaard control.
+        /// lblVoornaam control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBoomgaard;
+        protected global::System.Web.UI.WebControls.Label lblVoornaam;
 
         /// <summary>
-        /// TxtEmail control.
+        /// lblVoornaamValue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtEmail;
+        protected global::System.Web.UI.WebControls.Label lblVoornaamValue;
 
         /// <summary>
-        /// BtnRegistreer control.
+        /// lblAchternaam control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnRegistreer;
+        protected global::System.Web.UI.WebControls.Label lblAchternaam;
 
         /// <summary>
-        /// LblRegistratieMessage control.
+        /// lblAchternaamValue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblRegistratieMessage;
+        protected global::System.Web.UI.WebControls.Label lblAchternaamValue;
 
         /// <summary>
-        /// HiddenRolId control.
+        /// lblRol control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField HiddenRolId;
+        protected global::System.Web.UI.WebControls.Label lblRol;
+
+        /// <summary>
+        /// ddlRollen control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlRollen;
+
+        /// <summary>
+        /// btnSave control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSave;
+
+        /// <summary>
+        /// lblMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMessage;
     }
 }

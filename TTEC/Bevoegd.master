@@ -16,7 +16,7 @@
         <div id="mySidenav" class="sidenav blur">
             <button id="close-nav-mobile" class="mobile-nav-close mobile-nav-toggle">&times;</button>
             <img alt="Logo-Talentenschool-turnhout" class="navbar-logo" src="images/logo/Logo-Talentenschool-turnhout-3425386039.png" />
-            <a href="#">Registratie beheer</a>
+            <a href="Registraties.aspx">Registratie beheer</a>
         </div>
         <button id="open-nav-mobile" class="mobile mobile-nav-open mobile-nav-toggle" type="button">&#9776;</button>
     </div>

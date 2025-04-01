@@ -48,11 +48,9 @@ namespace TTEC
                     case 2:
                         Session["rol"] = "Personeel";
                         break;
-
                     case 3:
                         Session["rol"] = "Bevoegd";
                         break;
-
                     case 4:
                         Session["rol"] = "Beheerder";
                         break;

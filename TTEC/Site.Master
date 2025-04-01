@@ -8,31 +8,49 @@
     <meta charset="utf-8">
     <title>TTEC</title>
     <link href="css/font.css" rel="stylesheet" />
-    <script src="js/bootstrap.min.js"></script>
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/MyStyle.css" rel="stylesheet" />
     <link href="css/mobile.css" rel="stylesheet" />
     <script src="js/jquery-3.7.1.js"></script>
     <script src="js/logic/JavaScript.js"></script>
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+
 </head>
 <body>
     <form id="form1" runat="server">
         <div class="pageblur blur" id="blur"></div>
         <div class="grid-container">
+
+
             <div class="navblock block">
-                <img alt="Logo-Talentenschool-turnhout" class="navbar-logo" src="images/logo/Logo-Talentenschool-turnhout-3425386039.png" />
-                <asp:ContentPlaceHolder ID="nav" runat="server"></asp:ContentPlaceHolder>
+                
+                <div class="navbar-desktop desktop">
+                    <div class="image"></div>
+                    <asp:ContentPlaceHolder ID="nav_desktop" runat="server"></asp:ContentPlaceHolder>
+                </div>
+                <div class="navbar-mobile mobile">
+                    <div id="mySidenav" class="sidenav blur">
+                        <button id="close-nav-mobile" class="mobile-nav-close mobile-nav-toggle">&times;</button>
+                        <div class="items-container">
+                            <asp:ContentPlaceHolder ID="nav_mobile" runat="server"></asp:ContentPlaceHolder>
+                        </div>
+
+                    </div>
+                    <button id="open-nav-mobile" class="mobile-nav-open mobile-nav-toggle" type="button">&#9776;</button>
+                </div>
             </div>
-            <div class="contactsblock block">
+
+
+            <div class="contactsblock block desktop">
                 <div class="titel">
                     <div>Erasmus+ Contacts</div>
                 </div>
             </div>
             <div class="userblock block">
                 <div class="user">
-                    <span>John Dough</span>
+                    <asp:ContentPlaceHolder ID="account" runat="server"></asp:ContentPlaceHolder>
                     <img class="user-icon" alt="speedometer" src="/images/icons/person-circle.svg" />
                 </div>
             </div>
@@ -47,6 +65,6 @@
             </div>
         </div>
     </form>
-
+    <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

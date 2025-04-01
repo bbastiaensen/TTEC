@@ -21,8 +21,11 @@ body {
     margin: 0px;
 }
 
-.navbar-logo {
-    width: 70%;
+.image {
+    background: url('../images/logo/Logo-Talentenschool-turnhout-3425386039.png') no-repeat center;
+    height: 80px;
+    width: 100%;
+    background-size: contain;
 }
 
 .titel {
@@ -103,32 +106,32 @@ body {
 .navbar-desktop {
     width: 100%;
     margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-    .navbar-desktop > a {
-        margin-left: auto;
-        margin-right: auto;
-        background-color: #1E2631;
-        display: flex;
-        gap: 10px;
-        color: white;
-        align-items: center;
-        padding: 8px 0 12px 10px;
-        text-decoration: none;
-        margin-bottom: 10px;
-        border-radius: 15px;
-        border: solid 2px transparent;
-        transition: 0.3s;
-        width: 93%
-    }
+.navbar-desktop > a {
+    background-color: #1E2631;
+    gap: 10px;
+    color: white;
+    padding: 8px 0 12px 10px;
+    text-decoration: none;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    border: solid 2px transparent;
+    transition: 0.3s;
+    width: 93%;
+    text-align: left;
+}
 
-    .navbar-desktop a:hover {
-        background-color: #ccc;
-        background: none;
-        border: solid 2px #1E2631;
-        color: black;
-        width: 95%;
-    }
+.navbar-desktop a:hover {
+    background-color: #ccc;
+    background: none;
+    border: solid 2px #1E2631;
+    color: black;
+    width: 95%;
+}
 
 .user {
     display: flex;

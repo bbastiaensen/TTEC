@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Manager\HashManager.cs" />
     <Compile Include="Manager\LoginManager.cs" />
+    <Compile Include="Manager\RechtenManager.cs" />
     <Compile Include="Manager\SessieManager.cs" />
     <Compile Include="Object\Login.cs" />
     <Compile Include="Object\Sessie.cs" />

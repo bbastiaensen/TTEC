@@ -1,36 +1,85 @@
-﻿body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+﻿:root {
+    --hoofdachtergrond: #939598;
+    --blokachtergrond: #ffffff;
+    --websiteachtergrond: #f3eff5;
+    --subblok1: #f4d8ba;
+    --subblok2: #acc491;
+    --subblok3: #eac2d4;
+    --accent1: #f7941e;
+    --accent2: #8cc63f;
+    --accent3: #ec008c;
+    --accent4: #25aae1;
+    --letterkleur: #000000;
+    --font-family: 'Ubuntu';
 }
 
-.grid-container {
-    margin: 10px;
-    min-height: 100vh;
-    display: grid;
-    grid-template-rows: auto 1fr;
-    grid-template-columns: 70% auto;
-    grid-template-areas:
-        'conta user'
-        'conte conte';
-    background-color: var(--hoofdachtergrond);
-    padding: 7px;
+body {
+    background-color: var(--websiteachtergrond);
+    font-family: var(--font-family);
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: var(--letterkleur);
+}
+
+#mainform {
+    background-color: var(--blokachtergrond);
+    padding: 20px;
     border-radius: 10px;
-    gap: 7px;
+    width: 100%;
+    max-width: 500px;
+    margin: 20px auto;
 }
 
-.LoginContainer{
+#rf-header {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: var(--letterkleur);
+    font-size: 48px;
+}
+
+.button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
     display: block;
-    width:40%;
-    margin-left:auto;
-    margin-right: auto;
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: 5px;
 }
 
-.navblock{
-    display:none;
-}
-
-.contactsblock{
+.form-control {
+    width: 100%;
     display: block;
+    padding: 10px;
+    border: 1px solid var(--subblok2);
+    border-radius: 5px;
+    color: var(--letterkleur);
+}
+
+.BtnAanmelden {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: var(--accent1);
+    color: var(--blokachtergrond);
+    font-weight: bold;
+}
+
+    .BtnAanmelden:hover {
+        background-color: var(--accent4);
+    }
+
+.text-danger {
+    color: red;
+    font-weight: bold;
+    margin-top: 10px;
 }

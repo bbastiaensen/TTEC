@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
@@ -18,7 +19,7 @@ namespace TTEC
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if ((string)Session["rol"] != "Bevoegd")
+            if (Session["rol"] != "Bevoegd" && Session["rol"] != "Beheerder")
             {
                 // Gebruiker heeft geen geldige sessie, doorsturen naar loginpagina
                 Response.Redirect("LoginPage.aspx");
@@ -32,21 +33,43 @@ namespace TTEC
 
         private void LaadRegistraties()
         {
+            string query = @"
+        SELECT Voornaam, Achternaam, Gebruikersnaam, CampusZenit, CampusBoomgaard
+        FROM Registraties
+        ORDER BY Achternaam, Voornaam";
+
             using (SqlConnection con = new SqlConnection(connectionString))
+            using (SqlCommand cmd = new SqlCommand(query, con))
             {
-                string query = "SELECT Voornaam, Achternaam, Gebruikersnaam, " +
-                               "CASE WHEN CampusZenit = 1 AND CampusBoomgaard = 1 THEN 'Beide' " +
-                               "WHEN CampusZenit = 1 THEN 'Zenit' " +
-                               "WHEN CampusBoomgaard = 1 THEN 'Boomgaard' " +
-                               "ELSE 'Geen' END AS Campus " +
-                               "FROM Registraties ORDER BY Achternaam, Voornaam";
-                using (SqlCommand cmd = new SqlCommand(query, con))
+                con.Open();
+                using (SqlDataReader reader = cmd.ExecuteReader())
                 {
-                    con.Open();
-                    SqlDataAdapter DataA = new SqlDataAdapter(cmd);
-                    DataTable DataT = new DataTable();
-                    DataA.Fill(DataT);
-                    rptRegistraties.DataSource = DataT;
+                    var registraties = new List<dynamic>();
+                    while (reader.Read())
+                    {
+                        string campus = "Geen";
+                        if (Convert.ToBoolean(reader["CampusZenit"]) && Convert.ToBoolean(reader["CampusBoomgaard"]))
+                        {
+                            campus = "Beide";
+                        }
+                        else if (Convert.ToBoolean(reader["CampusZenit"]))
+                        {
+                            campus = "Zenit";
+                        }
+                        else if (Convert.ToBoolean(reader["CampusBoomgaard"]))
+                        {
+                            campus = "Boomgaard";
+                        }
+
+                        registraties.Add(new
+                        {
+                            Voornaam = reader["Voornaam"].ToString(),
+                            Achternaam = reader["Achternaam"].ToString(),
+                            Gebruikersnaam = reader["Gebruikersnaam"].ToString(),
+                            Campus = campus
+                        });
+                    }
+                    rptRegistraties.DataSource = registraties;
                     rptRegistraties.DataBind();
                 }
             }

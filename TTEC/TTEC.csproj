@@ -65,7 +65,6 @@
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\font.css" />
     <Content Include="css\Login.css" />
-    <Content Include="css\LoginePageStyle.css" />
     <Content Include="css\mobile.css" />
     <Content Include="css\MyStyle.css" />
     <Content Include="css\RechtenStyle.css" />
@@ -84,6 +83,7 @@
     <Content Include="Personeel.aspx" />
     <Content Include="Rechten.aspx" />
     <Content Include="Registraties.aspx" />
+    <Content Include="Rollen.aspx" />
     <Content Include="Web.config" />
     <Content Include="Beheerder.aspx" />
     <Content Include="Registratie.aspx" />
@@ -159,6 +159,13 @@
     </Compile>
     <Compile Include="Registraties.aspx.designer.cs">
       <DependentUpon>Registraties.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Rollen.aspx.cs">
+      <DependentUpon>Rollen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Rollen.aspx.designer.cs">
+      <DependentUpon>Rollen.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>

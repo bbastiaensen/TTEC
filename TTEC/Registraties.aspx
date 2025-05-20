@@ -2,9 +2,6 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script src="js/BsValidation.js"></script>
-    <script src="js/jquery-3.7.1.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/RegistratiesStyle.css" rel="stylesheet" />
     <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet'>
 </asp:Content>
@@ -25,7 +22,7 @@
                                 <p class="card-text">E-mail: <%# Eval("Gebruikersnaam") %></p>
                                 <p class="card-text">Campus: <%# Eval("Campus") %></p>
                                 <div class="btn-group" role="group">
-                                    <asp:Button ID="btnGoedkeuren" runat="server" Text="Goedkeuren" CssClass="btn btn-success"
+                                    <asp:Button ID="btnGoedkeuren" runat="server" Text="Goedkeuren" CssClass="btn btn-success btn-goedkeuren"
                                         CommandName="Goedkeuren" CommandArgument='<%# Eval("Gebruikersnaam") %>' OnClick="BtnGoedkeuren_Click" />
                                     <asp:Button ID="btnAfkeuren" runat="server" Text="Afkeuren" CssClass="btn btn-danger"
                                         CommandName="Afkeuren" CommandArgument='<%# Eval("Gebruikersnaam") %>' OnClick="BtnAfkeuren_Click" />

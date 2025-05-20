@@ -1,28 +1,4 @@
-﻿:root {
-    --hoofdachtergrond: #939598;
-    --blokachtergrond: #ffffff;
-    --websiteachtergrond: #f3eff5;
-    --subblok1: #f4d8ba;
-    --subblok2: #acc491;
-    --subblok3: #eac2d4;
-    --accent1: #f7941e;
-    --accent2: #8cc63f;
-    --accent3: #ec008c;
-    --accent4: #25aae1;
-    --letterkleur: #000000;
-    --font-family: 'Ubuntu';
-}
-
-body {
-    background-color: var(--websiteachtergrond);
-    font-family: var(--font-family);
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    color: var(--letterkleur);
-}
-
-#mainform {
+﻿#mainform {
     background-color: var(--blokachtergrond);
     padding: 20px;
     border-radius: 10px;

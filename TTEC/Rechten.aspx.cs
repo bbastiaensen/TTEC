@@ -17,6 +17,8 @@ namespace TTEC
             if (!IsPostBack)
             {
                 RechtenManager.ConnectionString = ConfigurationManager.ConnectionStrings["TTEC"].ConnectionString;
+                RollenManager.ConnectionString = ConfigurationManager.ConnectionStrings["TTEC"].ConnectionString;
+
                 LoadUsers();
                 LoadRoles();
             }
@@ -29,10 +31,11 @@ namespace TTEC
 
         private void LoadRoles()
         {
-            ddlRollen.Items.Add(new ListItem("Bezoeker", "1"));
-            ddlRollen.Items.Add(new ListItem("Personeel", "2"));
-            ddlRollen.Items.Add(new ListItem("Bevoegd", "3"));
-            ddlRollen.Items.Add(new ListItem("Beheerder", "4"));
+            var rollen = RollenManager.GetRollen();
+            ddlRollen.DataSource = rollen;
+            ddlRollen.DataTextField = "Naam";
+            ddlRollen.DataValueField = "Id";
+            ddlRollen.DataBind();
         }
 
         protected void ddlUsers_SelectedIndexChanged(object sender, EventArgs e)

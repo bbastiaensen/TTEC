@@ -1,7 +1,7 @@
 ﻿<%@ Master Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Personeel.master.cs" Inherits="TTEC.NestedMasterPage3" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="nav" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="nav_desktop" runat="server">
     <div class="navbar-desktop">
         <a href="#" class="active">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-vcard-fill" viewBox="0 0 16 16">

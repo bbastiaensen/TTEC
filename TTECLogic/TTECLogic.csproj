@@ -44,7 +44,9 @@
   <ItemGroup>
     <Compile Include="Manager\HashManager.cs" />
     <Compile Include="Manager\LoginManager.cs" />
+    <Compile Include="Manager\OrganisatieManager.cs" />
     <Compile Include="Manager\RechtenManager.cs" />
+    <Compile Include="Object\Organisatie.cs" />
     <Compile Include="Object\Rol.cs" />
     <Compile Include="Manager\RollenManager.cs" />
     <Compile Include="Manager\SessieManager.cs" />

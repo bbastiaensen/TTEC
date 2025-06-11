@@ -80,6 +80,7 @@
     <Content Include="js\jquery-3.7.1.js" />
     <Content Include="js\logic\JavaScript.js" />
     <Content Include="LoginPage.aspx" />
+    <Content Include="Organisaties.aspx" />
     <Content Include="Personeel.aspx" />
     <Content Include="Rechten.aspx" />
     <Content Include="Registraties.aspx" />
@@ -130,6 +131,13 @@
     </Compile>
     <Compile Include="LoginPage.aspx.designer.cs">
       <DependentUpon>LoginPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Organisaties.aspx.cs">
+      <DependentUpon>Organisaties.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Organisaties.aspx.designer.cs">
+      <DependentUpon>Organisaties.aspx</DependentUpon>
     </Compile>
     <Compile Include="Personeel.aspx.cs">
       <DependentUpon>Personeel.aspx</DependentUpon>

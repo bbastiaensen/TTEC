@@ -100,12 +100,11 @@ namespace TTEC
 
                 txtRolNaam.Text = naam;
             }
-            catch (Exception ex)
+            catch
             {
-                lblMessage.Text = "Fout bij opslaan: " + ex.Message;
+                lblMessage.Text = "Fout bij het opslaan: ";
             }
         }
-
 
         protected void btnVerwijderen_Click(object sender, EventArgs e)
         {
@@ -123,9 +122,9 @@ namespace TTEC
                 ViewState["Status"] = "nieuw";
                 btnVerwijderen.Enabled = false;
             }
-            catch (Exception ex)
+            catch
             {
-                lblMessage.Text = "Fout bij verwijderen: " + ex.Message;
+                lblMessage.Text = "Fout bij het verwijderen van de rol er is al een gebruiker met deze rol: ";
             }
         }
 

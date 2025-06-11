@@ -1,0 +1,37 @@
+﻿.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.btn {
+    width: 100px;
+    margin-left: 5px;
+}
+
+@media only screen and (max-width: 1302px) {
+    .btn-group > .btn-group:not(:last-child) > .btn, .btn-group > .btn.dropdown-toggle-split:first-child, .btn-group > .btn:not(:last-child):not(.dropdown-toggle) {
+        border-top-right-radius: 6px;
+        border-bottom-right-radius: 6px;
+        margin-left: 0;
+    }
+
+    .btn-group > .btn-group:not(:first-child) > .btn, .btn-group > .btn:nth-child(n+3), .btn-group > :not(.btn-check) + .btn {
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px;
+    }
+}

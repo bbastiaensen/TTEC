@@ -12,10 +12,9 @@
     <link href="css/mobile.css" rel="stylesheet" />
     <script src="js/jquery-3.7.1.js"></script>
     <script src="js/logic/JavaScript.js"></script>
-
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
 
 </head>
 <body>

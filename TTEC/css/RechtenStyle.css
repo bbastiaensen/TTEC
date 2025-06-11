@@ -1,20 +1,71 @@
 ﻿.form-container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    border-radius: 5px;
+max-width: 600px;
+margin: 0 auto;
+padding: 20px;
+border-radius: 5px;
+font-family: var(--font-family);
+text-align: left;
 }
 
-    .form-container label {
-        display: block;
-        margin-bottom: 10px;
+
+.form-container label {
+display: block;
+margin-bottom: 5px;
+font-weight: bold;
+}
+
+.form-container select,
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #333;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+.form-container .separator {
+    border-top: 1px solid #000;
+    margin: 20px 0;
+}
+
+.form-container .user-details {
+    margin-top: 20px;
+}
+
+.form-container .detail-row {
+    margin-bottom: 10px;
+}
+
+    .form-container .detail-row span {
+        display: inline-block;
+        min-width: 130px;
         font-weight: bold;
     }
 
-    .form-container .user-details {
-        margin-top: 20px;
+.form-container .button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+    .form-container .button-container button {
+        padding: 8px 16px;
+        border: 1px solid #aaa;
+        background-color: #eee;
+        cursor: pointer;
+        border-radius: 3px;
+        font-weight: bold;
     }
 
-    .form-container .detail-row {
-        margin-bottom: 15px;
-    }
+        .form-container .button-container button:hover {
+            background-color: #ddd;
+        }
+
+.form-container .message-label {
+    margin-top: 15px;
+    font-style: italic;
+    text-align: center;
+    color: #555;
+}

@@ -1,9 +1,9 @@
 ﻿<%@ Page Title="Registraties" Language="C#" MasterPageFile="~/Beheerder.master" AutoEventWireup="true" CodeBehind="Registraties.aspx.cs" Inherits="TTEC.Registraties" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
-    <script src="js/jquery-3.7.1.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="js/BsValidation.js"></script>
+    <link href="css/RegistratiesStyle.css" rel="stylesheet" />
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet'>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="PageContent" runat="server">
@@ -15,18 +15,17 @@
         <div class="row">
             <asp:Repeater ID="rptRegistraties" runat="server">
                 <ItemTemplate>
-                    <div class="col-md-4">
+                    <div class="col-lg-4 col-md-6 col-sm-12">
                         <div class="card mb-4">
                             <div class="card-body">
                                 <h5 class="card-title"><%# Eval("Achternaam") %> <%# Eval("Voornaam") %></h5>
                                 <p class="card-text">E-mail: <%# Eval("Gebruikersnaam") %></p>
                                 <p class="card-text">Campus: <%# Eval("Campus") %></p>
                                 <div class="btn-group" role="group">
-                                    <asp:Button ID="btnGoedkeuren" runat="server" Text="Goedkeuren" CssClass="btn btn-success"
+                                    <asp:Button ID="btnGoedkeuren" runat="server" Text="Goedkeuren" CssClass="btn btn-success btn-goedkeuren"
                                         CommandName="Goedkeuren" CommandArgument='<%# Eval("Gebruikersnaam") %>' OnClick="BtnGoedkeuren_Click" />
                                     <asp:Button ID="btnAfkeuren" runat="server" Text="Afkeuren" CssClass="btn btn-danger"
                                         CommandName="Afkeuren" CommandArgument='<%# Eval("Gebruikersnaam") %>' OnClick="BtnAfkeuren_Click" />
-
                                 </div>
                             </div>
                         </div>

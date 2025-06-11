@@ -65,7 +65,8 @@ namespace TTEC
 
             if (!IsPostBack)
             {
-                if (IsPostBack)
+                // Controleer of de gebruiker écht op Registratie.aspx hoort te zijn
+                if (Request.UrlReferrer != null && Request.UrlReferrer.AbsolutePath.Contains("Registratie.aspx"))
                 {
                     ResetVelden();
                     LblRegistratieMessage.Visible = false;
@@ -128,7 +129,7 @@ namespace TTEC
                 smtp.Port = 587;
                 smtp.EnableSsl = true;
                 smtp.UseDefaultCredentials = false;
-                smtp.Credentials = new NetworkCredential("meulenbroekjesse250@gmail.com", "xapg ghzb dvwn tvud\r\n");
+                smtp.Credentials = new NetworkCredential("meulenbroekjesse250@gmail.com", "xapg ghzb dvwn tvud\r\n"); // Vervang met beheerder credentials
 
                 // E-mails verzenden
                 smtp.Send(userMail);

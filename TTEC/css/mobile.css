@@ -47,7 +47,10 @@
     top: 0;
     left: 0;
     background-color: rgba(0, 0, 0, 0.61);
-    display: none
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    z-index: 2; 
+    display: none;
 }
 
 .sidenav > .image {
